@@ -1,0 +1,118 @@
+2026-02-09T18:21:31.015002Z  INFO tailwindcss_oxide::scanner: Provided sources:
+2026-02-09T18:21:31.015274Z  INFO tailwindcss_oxide::scanner: Source: PublicSourceEntry { base: "C:\\Users\\R1wen\\Desktop\\CoursB3\\Business english\\axiom-mvp", pattern: "**/*", negated: false }
+2026-02-09T18:21:31.016079Z  INFO tailwindcss_oxide::scanner: Optimized sources:
+2026-02-09T18:21:31.016161Z  INFO tailwindcss_oxide::scanner: Source: Auto { base: "C:\\Users\\R1wen\\Desktop\\CoursB3\\Business english\\axiom-mvp" }
+2026-02-09T18:21:31.020108Z  INFO scan_sources: tailwindcss_oxide::scanner: enter
+2026-02-09T18:21:31.024337Z  INFO scan_sources: tailwindcss_oxide::scanner: Discovering "C:\\Users\\R1wen\\Desktop\\CoursB3\\Business english\\axiom-mvp\\actions"
+2026-02-09T18:21:31.024547Z  INFO scan_sources: tailwindcss_oxide::scanner: Discovering "C:\\Users\\R1wen\\Desktop\\CoursB3\\Business english\\axiom-mvp\\actions\\finance.ts"
+2026-02-09T18:21:31.024706Z  INFO scan_sources: tailwindcss_oxide::scanner: Discovering "C:\\Users\\R1wen\\Desktop\\CoursB3\\Business english\\axiom-mvp\\app"
+2026-02-09T18:21:31.024894Z  INFO scan_sources: tailwindcss_oxide::scanner: Discovering "C:\\Users\\R1wen\\Desktop\\CoursB3\\Business english\\axiom-mvp\\app\\globals.css"
+2026-02-09T18:21:31.024976Z  INFO scan_sources: tailwindcss_oxide::scanner: Discovering "C:\\Users\\R1wen\\Desktop\\CoursB3\\Business english\\axiom-mvp\\app\\layout.tsx"
+2026-02-09T18:21:31.025056Z  INFO scan_sources: tailwindcss_oxide::scanner: Discovering "C:\\Users\\R1wen\\Desktop\\CoursB3\\Business english\\axiom-mvp\\app\\page.tsx"
+2026-02-09T18:21:31.025212Z  INFO scan_sources: tailwindcss_oxide::scanner: Discovering "C:\\Users\\R1wen\\Desktop\\CoursB3\\Business english\\axiom-mvp\\components"
+2026-02-09T18:21:31.025437Z  INFO scan_sources: tailwindcss_oxide::scanner: Discovering "C:\\Users\\R1wen\\Desktop\\CoursB3\\Business english\\axiom-mvp\\components\\charts"
+2026-02-09T18:21:31.025605Z  INFO scan_sources: tailwindcss_oxide::scanner: Discovering "C:\\Users\\R1wen\\Desktop\\CoursB3\\Business english\\axiom-mvp\\components\\charts\\financial-trend-chart.tsx"
+2026-02-09T18:21:31.025686Z  INFO scan_sources: tailwindcss_oxide::scanner: Discovering "C:\\Users\\R1wen\\Desktop\\CoursB3\\Business english\\axiom-mvp\\components\\charts\\product-split-chart.tsx"
+2026-02-09T18:21:31.025791Z  INFO scan_sources: tailwindcss_oxide::scanner: Discovering "C:\\Users\\R1wen\\Desktop\\CoursB3\\Business english\\axiom-mvp\\components\\transaction-form.tsx"
+2026-02-09T18:21:31.025871Z  INFO scan_sources: tailwindcss_oxide::scanner: Discovering "C:\\Users\\R1wen\\Desktop\\CoursB3\\Business english\\axiom-mvp\\components\\transaction-table.tsx"
+2026-02-09T18:21:31.026003Z  INFO scan_sources: tailwindcss_oxide::scanner: Discovering "C:\\Users\\R1wen\\Desktop\\CoursB3\\Business english\\axiom-mvp\\components\\ui"
+2026-02-09T18:21:31.026205Z  INFO scan_sources: tailwindcss_oxide::scanner: Discovering "C:\\Users\\R1wen\\Desktop\\CoursB3\\Business english\\axiom-mvp\\components\\ui\\badge.tsx"
+2026-02-09T18:21:31.026293Z  INFO scan_sources: tailwindcss_oxide::scanner: Discovering "C:\\Users\\R1wen\\Desktop\\CoursB3\\Business english\\axiom-mvp\\components\\ui\\button.tsx"
+2026-02-09T18:21:31.026374Z  INFO scan_sources: tailwindcss_oxide::scanner: Discovering "C:\\Users\\R1wen\\Desktop\\CoursB3\\Business english\\axiom-mvp\\components\\ui\\card.tsx"
+2026-02-09T18:21:31.026455Z  INFO scan_sources: tailwindcss_oxide::scanner: Discovering "C:\\Users\\R1wen\\Desktop\\CoursB3\\Business english\\axiom-mvp\\components\\ui\\dialog.tsx"
+2026-02-09T18:21:31.026533Z  INFO scan_sources: tailwindcss_oxide::scanner: Discovering "C:\\Users\\R1wen\\Desktop\\CoursB3\\Business english\\axiom-mvp\\components\\ui\\input.tsx"
+2026-02-09T18:21:31.026610Z  INFO scan_sources: tailwindcss_oxide::scanner: Discovering "C:\\Users\\R1wen\\Desktop\\CoursB3\\Business english\\axiom-mvp\\components\\ui\\kpi-card.tsx"
+2026-02-09T18:21:31.026694Z  INFO scan_sources: tailwindcss_oxide::scanner: Discovering "C:\\Users\\R1wen\\Desktop\\CoursB3\\Business english\\axiom-mvp\\components\\ui\\label.tsx"
+2026-02-09T18:21:31.027090Z  INFO scan_sources: tailwindcss_oxide::scanner: Discovering "C:\\Users\\R1wen\\Desktop\\CoursB3\\Business english\\axiom-mvp\\components\\ui\\select.tsx"
+2026-02-09T18:21:31.027199Z  INFO scan_sources: tailwindcss_oxide::scanner: Discovering "C:\\Users\\R1wen\\Desktop\\CoursB3\\Business english\\axiom-mvp\\components\\ui\\table.tsx"
+2026-02-09T18:21:31.027372Z  INFO scan_sources: tailwindcss_oxide::scanner: Discovering "C:\\Users\\R1wen\\Desktop\\CoursB3\\Business english\\axiom-mvp\\components.json"
+2026-02-09T18:21:31.027477Z  INFO scan_sources: tailwindcss_oxide::scanner: Discovering "C:\\Users\\R1wen\\Desktop\\CoursB3\\Business english\\axiom-mvp\\eslint.config.mjs"
+2026-02-09T18:21:31.027649Z  INFO scan_sources: tailwindcss_oxide::scanner: Discovering "C:\\Users\\R1wen\\Desktop\\CoursB3\\Business english\\axiom-mvp\\lib"
+2026-02-09T18:21:31.027871Z  INFO scan_sources: tailwindcss_oxide::scanner: Discovering "C:\\Users\\R1wen\\Desktop\\CoursB3\\Business english\\axiom-mvp\\lib\\utils.ts"
+2026-02-09T18:21:31.028003Z  INFO scan_sources: tailwindcss_oxide::scanner: Discovering "C:\\Users\\R1wen\\Desktop\\CoursB3\\Business english\\axiom-mvp\\next.config.ts"
+2026-02-09T18:21:31.028300Z  INFO scan_sources: tailwindcss_oxide::scanner: Discovering "C:\\Users\\R1wen\\Desktop\\CoursB3\\Business english\\axiom-mvp\\package.json"
+2026-02-09T18:21:31.028377Z  INFO scan_sources: tailwindcss_oxide::scanner: Discovering "C:\\Users\\R1wen\\Desktop\\CoursB3\\Business english\\axiom-mvp\\postcss.config.mjs"
+2026-02-09T18:21:31.028504Z  INFO scan_sources: tailwindcss_oxide::scanner: Discovering "C:\\Users\\R1wen\\Desktop\\CoursB3\\Business english\\axiom-mvp\\prisma"
+2026-02-09T18:21:31.028681Z  INFO scan_sources: tailwindcss_oxide::scanner: Discovering "C:\\Users\\R1wen\\Desktop\\CoursB3\\Business english\\axiom-mvp\\prisma\\schema.prisma"
+2026-02-09T18:21:31.028757Z  INFO scan_sources: tailwindcss_oxide::scanner: Discovering "C:\\Users\\R1wen\\Desktop\\CoursB3\\Business english\\axiom-mvp\\prisma\\seed.ts"
+2026-02-09T18:21:31.028904Z  INFO scan_sources: tailwindcss_oxide::scanner: Discovering "C:\\Users\\R1wen\\Desktop\\CoursB3\\Business english\\axiom-mvp\\public"
+2026-02-09T18:21:31.029255Z  INFO scan_sources: tailwindcss_oxide::scanner: Discovering "C:\\Users\\R1wen\\Desktop\\CoursB3\\Business english\\axiom-mvp\\public\\file.svg"
+2026-02-09T18:21:31.029565Z  INFO scan_sources: tailwindcss_oxide::scanner: Discovering "C:\\Users\\R1wen\\Desktop\\CoursB3\\Business english\\axiom-mvp\\public\\globe.svg"
+2026-02-09T18:21:31.029689Z  INFO scan_sources: tailwindcss_oxide::scanner: Discovering "C:\\Users\\R1wen\\Desktop\\CoursB3\\Business english\\axiom-mvp\\public\\next.svg"
+2026-02-09T18:21:31.029826Z  INFO scan_sources: tailwindcss_oxide::scanner: Discovering "C:\\Users\\R1wen\\Desktop\\CoursB3\\Business english\\axiom-mvp\\public\\vercel.svg"
+2026-02-09T18:21:31.029932Z  INFO scan_sources: tailwindcss_oxide::scanner: Discovering "C:\\Users\\R1wen\\Desktop\\CoursB3\\Business english\\axiom-mvp\\public\\window.svg"
+2026-02-09T18:21:31.030068Z  INFO scan_sources: tailwindcss_oxide::scanner: Discovering "C:\\Users\\R1wen\\Desktop\\CoursB3\\Business english\\axiom-mvp\\README.md"
+2026-02-09T18:21:31.030180Z  INFO scan_sources: tailwindcss_oxide::scanner: Discovering "C:\\Users\\R1wen\\Desktop\\CoursB3\\Business english\\axiom-mvp\\tsconfig.json"
+2026-02-09T18:21:31.030320Z  INFO scan_sources: tailwindcss_oxide::scanner: exit
+2026-02-09T18:21:31.030347Z  INFO extract_candidates: tailwindcss_oxide::scanner: enter
+2026-02-09T18:21:31.030361Z  INFO extract_candidates:read_all_files: tailwindcss_oxide::scanner: enter
+2026-02-09T18:21:31.030371Z  INFO extract_candidates:read_all_files: tailwindcss_oxide::scanner: Reading 31 file(s)
+2026-02-09T18:21:31.031027Z  INFO tailwindcss_oxide::scanner: Reading "C:\\Users\\R1wen\\Desktop\\CoursB3\\Business english\\axiom-mvp\\actions\\finance.ts"
+2026-02-09T18:21:31.031077Z  INFO tailwindcss_oxide::scanner: Reading "C:\\Users\\R1wen\\Desktop\\CoursB3\\Business english\\axiom-mvp\\components\\ui\\table.tsx"
+2026-02-09T18:21:31.031190Z  INFO tailwindcss_oxide::scanner: Reading "C:\\Users\\R1wen\\Desktop\\CoursB3\\Business english\\axiom-mvp\\app\\layout.tsx"
+2026-02-09T18:21:31.031295Z  INFO tailwindcss_oxide::scanner: Reading "C:\\Users\\R1wen\\Desktop\\CoursB3\\Business english\\axiom-mvp\\components.json"
+2026-02-09T18:21:31.031306Z  INFO tailwindcss_oxide::scanner: Reading "C:\\Users\\R1wen\\Desktop\\CoursB3\\Business english\\axiom-mvp\\components\\ui\\badge.tsx"
+2026-02-09T18:21:31.031418Z  INFO tailwindcss_oxide::scanner: Reading "C:\\Users\\R1wen\\Desktop\\CoursB3\\Business english\\axiom-mvp\\components\\ui\\button.tsx"
+2026-02-09T18:21:31.031427Z  INFO tailwindcss_oxide::scanner: Reading "C:\\Users\\R1wen\\Desktop\\CoursB3\\Business english\\axiom-mvp\\eslint.config.mjs"
+2026-02-09T18:21:31.031467Z  INFO tailwindcss_oxide::scanner: Reading "C:\\Users\\R1wen\\Desktop\\CoursB3\\Business english\\axiom-mvp\\components\\ui\\input.tsx"
+2026-02-09T18:21:31.031496Z  INFO tailwindcss_oxide::scanner: Reading "C:\\Users\\R1wen\\Desktop\\CoursB3\\Business english\\axiom-mvp\\components\\ui\\card.tsx"
+2026-02-09T18:21:31.031537Z  INFO tailwindcss_oxide::scanner: Reading "C:\\Users\\R1wen\\Desktop\\CoursB3\\Business english\\axiom-mvp\\lib\\utils.ts"
+2026-02-09T18:21:31.031581Z  INFO tailwindcss_oxide::scanner: Reading "C:\\Users\\R1wen\\Desktop\\CoursB3\\Business english\\axiom-mvp\\components\\ui\\dialog.tsx"
+2026-02-09T18:21:31.031631Z  INFO tailwindcss_oxide::scanner: Reading "C:\\Users\\R1wen\\Desktop\\CoursB3\\Business english\\axiom-mvp\\next.config.ts"
+2026-02-09T18:21:31.031633Z  INFO tailwindcss_oxide::scanner: Reading "C:\\Users\\R1wen\\Desktop\\CoursB3\\Business english\\axiom-mvp\\components\\ui\\kpi-card.tsx"
+2026-02-09T18:21:31.031664Z  INFO tailwindcss_oxide::scanner: Reading "C:\\Users\\R1wen\\Desktop\\CoursB3\\Business english\\axiom-mvp\\components\\charts\\financial-trend-chart.tsx"
+2026-02-09T18:21:31.031726Z  INFO tailwindcss_oxide::scanner: Reading "C:\\Users\\R1wen\\Desktop\\CoursB3\\Business english\\axiom-mvp\\package.json"
+2026-02-09T18:21:31.031782Z  INFO tailwindcss_oxide::scanner: Reading "C:\\Users\\R1wen\\Desktop\\CoursB3\\Business english\\axiom-mvp\\components\\charts\\product-split-chart.tsx"
+2026-02-09T18:21:31.031790Z  INFO tailwindcss_oxide::scanner: Reading "C:\\Users\\R1wen\\Desktop\\CoursB3\\Business english\\axiom-mvp\\components\\ui\\label.tsx"
+2026-02-09T18:21:31.031807Z  INFO tailwindcss_oxide::scanner: Reading "C:\\Users\\R1wen\\Desktop\\CoursB3\\Business english\\axiom-mvp\\postcss.config.mjs"
+2026-02-09T18:21:31.031868Z  INFO tailwindcss_oxide::scanner: Reading "C:\\Users\\R1wen\\Desktop\\CoursB3\\Business english\\axiom-mvp\\components\\transaction-form.tsx"
+2026-02-09T18:21:31.031882Z  INFO tailwindcss_oxide::scanner: Reading "C:\\Users\\R1wen\\Desktop\\CoursB3\\Business english\\axiom-mvp\\prisma\\schema.prisma"
+2026-02-09T18:21:31.031923Z  INFO tailwindcss_oxide::scanner: Reading "C:\\Users\\R1wen\\Desktop\\CoursB3\\Business english\\axiom-mvp\\components\\ui\\select.tsx"
+2026-02-09T18:21:31.031957Z  INFO tailwindcss_oxide::scanner: Reading "C:\\Users\\R1wen\\Desktop\\CoursB3\\Business english\\axiom-mvp\\components\\transaction-table.tsx"
+2026-02-09T18:21:31.031963Z  INFO tailwindcss_oxide::scanner: Reading "C:\\Users\\R1wen\\Desktop\\CoursB3\\Business english\\axiom-mvp\\prisma\\seed.ts"
+2026-02-09T18:21:31.032326Z  INFO tailwindcss_oxide::scanner: Reading "C:\\Users\\R1wen\\Desktop\\CoursB3\\Business english\\axiom-mvp\\app\\page.tsx"
+2026-02-09T18:21:31.032799Z  INFO tailwindcss_oxide::scanner: Reading "C:\\Users\\R1wen\\Desktop\\CoursB3\\Business english\\axiom-mvp\\tsconfig.json"
+2026-02-09T18:21:31.051212Z  INFO tailwindcss_oxide::scanner: Reading "C:\\Users\\R1wen\\Desktop\\CoursB3\\Business english\\axiom-mvp\\public\\next.svg"
+2026-02-09T18:21:31.052132Z  INFO tailwindcss_oxide::scanner: Reading "C:\\Users\\R1wen\\Desktop\\CoursB3\\Business english\\axiom-mvp\\public\\globe.svg"
+2026-02-09T18:21:31.053611Z  INFO tailwindcss_oxide::scanner: Reading "C:\\Users\\R1wen\\Desktop\\CoursB3\\Business english\\axiom-mvp\\public\\window.svg"
+2026-02-09T18:21:31.053817Z  INFO tailwindcss_oxide::scanner: Reading "C:\\Users\\R1wen\\Desktop\\CoursB3\\Business english\\axiom-mvp\\public\\vercel.svg"
+2026-02-09T18:21:31.054972Z  INFO tailwindcss_oxide::scanner: Reading "C:\\Users\\R1wen\\Desktop\\CoursB3\\Business english\\axiom-mvp\\public\\file.svg"
+2026-02-09T18:21:31.066983Z  INFO tailwindcss_oxide::scanner: Reading "C:\\Users\\R1wen\\Desktop\\CoursB3\\Business english\\axiom-mvp\\README.md"
+2026-02-09T18:21:31.067108Z  INFO extract_candidates:read_all_files: tailwindcss_oxide::scanner: exit
+2026-02-09T18:21:31.067143Z  INFO extract_candidates:parse_all_blobs: tailwindcss_oxide::scanner: enter
+2026-02-09T18:21:31.067151Z  INFO extract_candidates:parse_all_blobs:extract: tailwindcss_oxide::scanner: enter
+2026-02-09T18:21:31.068472Z  INFO extract_candidates:parse_all_blobs:extract: tailwindcss_oxide::scanner: exit
+2026-02-09T18:21:31.068502Z  INFO extract_candidates:parse_all_blobs: tailwindcss_oxide::scanner: exit
+2026-02-09T18:21:31.068513Z  INFO extract_candidates:read_all_files: tailwindcss_oxide::scanner: enter
+2026-02-09T18:21:31.068519Z  INFO extract_candidates:read_all_files: tailwindcss_oxide::scanner: Reading 1 file(s)
+2026-02-09T18:21:31.068718Z  INFO extract_candidates:read_all_files: tailwindcss_oxide::scanner: Reading "C:\\Users\\R1wen\\Desktop\\CoursB3\\Business english\\axiom-mvp\\app\\globals.css"
+2026-02-09T18:21:31.068732Z  INFO extract_candidates:read_all_files: tailwindcss_oxide::scanner: exit
+2026-02-09T18:21:31.068748Z  INFO extract_candidates:extract_css_variables: tailwindcss_oxide::scanner: enter
+2026-02-09T18:21:31.068754Z  INFO extract_candidates:extract_css_variables:extract: tailwindcss_oxide::scanner: enter
+2026-02-09T18:21:31.068898Z  INFO extract_candidates:extract_css_variables:extract: tailwindcss_oxide::scanner: exit
+2026-02-09T18:21:31.068936Z  INFO extract_candidates:extract_css_variables: tailwindcss_oxide::scanner: exit
+2026-02-09T18:21:31.069736Z  INFO extract_candidates: tailwindcss_oxide::scanner: exit
+2026-02-09T18:21:31.070379Z  INFO get_files: tailwindcss_oxide::scanner: enter
+2026-02-09T18:21:31.070398Z  INFO get_files:scan_sources: tailwindcss_oxide::scanner: enter
+2026-02-09T18:21:31.072922Z  INFO get_files:scan_sources: tailwindcss_oxide::scanner: Discovering "C:\\Users\\R1wen\\Desktop\\CoursB3\\Business english\\axiom-mvp\\actions"
+2026-02-09T18:21:31.073233Z  INFO get_files:scan_sources: tailwindcss_oxide::scanner: Discovering "C:\\Users\\R1wen\\Desktop\\CoursB3\\Business english\\axiom-mvp\\app"
+2026-02-09T18:21:31.073628Z  INFO get_files:scan_sources: tailwindcss_oxide::scanner: Discovering "C:\\Users\\R1wen\\Desktop\\CoursB3\\Business english\\axiom-mvp\\components"
+2026-02-09T18:21:31.073858Z  INFO get_files:scan_sources: tailwindcss_oxide::scanner: Discovering "C:\\Users\\R1wen\\Desktop\\CoursB3\\Business english\\axiom-mvp\\components\\charts"
+2026-02-09T18:21:31.074275Z  INFO get_files:scan_sources: tailwindcss_oxide::scanner: Discovering "C:\\Users\\R1wen\\Desktop\\CoursB3\\Business english\\axiom-mvp\\components\\ui"
+2026-02-09T18:21:31.075005Z  INFO get_files:scan_sources: tailwindcss_oxide::scanner: Discovering "C:\\Users\\R1wen\\Desktop\\CoursB3\\Business english\\axiom-mvp\\lib"
+2026-02-09T18:21:31.075656Z  INFO get_files:scan_sources: tailwindcss_oxide::scanner: Discovering "C:\\Users\\R1wen\\Desktop\\CoursB3\\Business english\\axiom-mvp\\prisma"
+2026-02-09T18:21:31.075981Z  INFO get_files:scan_sources: tailwindcss_oxide::scanner: Discovering "C:\\Users\\R1wen\\Desktop\\CoursB3\\Business english\\axiom-mvp\\public"
+2026-02-09T18:21:31.076506Z  INFO get_files:scan_sources: tailwindcss_oxide::scanner: exit
+2026-02-09T18:21:31.076640Z  INFO get_files: tailwindcss_oxide::scanner: exit
+2026-02-09T18:21:31.077166Z  INFO get_globs: tailwindcss_oxide::scanner: enter
+2026-02-09T18:21:31.077181Z  INFO get_globs:scan_sources: tailwindcss_oxide::scanner: enter
+2026-02-09T18:21:31.080115Z  INFO get_globs:scan_sources: tailwindcss_oxide::scanner: Discovering "C:\\Users\\R1wen\\Desktop\\CoursB3\\Business english\\axiom-mvp\\actions"
+2026-02-09T18:21:31.080492Z  INFO get_globs:scan_sources: tailwindcss_oxide::scanner: Discovering "C:\\Users\\R1wen\\Desktop\\CoursB3\\Business english\\axiom-mvp\\app"
+2026-02-09T18:21:31.081031Z  INFO get_globs:scan_sources: tailwindcss_oxide::scanner: Discovering "C:\\Users\\R1wen\\Desktop\\CoursB3\\Business english\\axiom-mvp\\components"
+2026-02-09T18:21:31.081444Z  INFO get_globs:scan_sources: tailwindcss_oxide::scanner: Discovering "C:\\Users\\R1wen\\Desktop\\CoursB3\\Business english\\axiom-mvp\\components\\charts"
+2026-02-09T18:21:31.081897Z  INFO get_globs:scan_sources: tailwindcss_oxide::scanner: Discovering "C:\\Users\\R1wen\\Desktop\\CoursB3\\Business english\\axiom-mvp\\components\\ui"
+2026-02-09T18:21:31.082859Z  INFO get_globs:scan_sources: tailwindcss_oxide::scanner: Discovering "C:\\Users\\R1wen\\Desktop\\CoursB3\\Business english\\axiom-mvp\\lib"
+2026-02-09T18:21:31.083504Z  INFO get_globs:scan_sources: tailwindcss_oxide::scanner: Discovering "C:\\Users\\R1wen\\Desktop\\CoursB3\\Business english\\axiom-mvp\\prisma"
+2026-02-09T18:21:31.083892Z  INFO get_globs:scan_sources: tailwindcss_oxide::scanner: Discovering "C:\\Users\\R1wen\\Desktop\\CoursB3\\Business english\\axiom-mvp\\public"
+2026-02-09T18:21:31.084636Z  INFO get_globs:scan_sources: tailwindcss_oxide::scanner: exit
+2026-02-09T18:21:31.090930Z  INFO get_globs: tailwindcss_oxide::scanner: exit

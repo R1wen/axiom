@@ -1,0 +1,90 @@
+// This is your Prisma schema file,
+// learn more about it in the docs: https://pris.ly/d/prisma-schema
+
+generator client {
+  provider = "prisma-client-js"
+}
+
+datasource db {
+  provider = "mysql"
+  url      = env("DATABASE_URL")
+}
+
+enum ProductType {
+  MAIZE      // Maïs
+  SOYBEAN    // Soja
+  RICE       // Riz
+  SORGHUM    // Sorgho
+  YAM        // Igname
+  CASSAVA    // Manioc
+  BEANS      // Haricot
+  GROUNDNUT  // Arachide
+}
+
+enum Region {
+  MARITIME
+  PLATEAUX
+  CENTRALE
+  KARA
+  SAVANES
+}
+
+enum PaymentMethod {
+  CASH
+  MOBILE_MONEY // Flooz, T-Money
+  BANK_TRANSFER
+  CHECK
+}
+
+enum Status {
+  COMPLETED
+  PENDING
+  CANCELLED
+}
+
+model Transaction {
+  id            String        @id @default(uuid())
+  createdAt     DateTime      @default(now())
+  date          DateTime      // The actual transaction date
+  
+  // Business Data
+  clientName    String        // Keep simple for MVP
+  product       ProductType
+  quantity      Float         // In kg or tons
+  unitPrice     Float         // In FCFA
+  totalAmount   Float         // Calculated (quantity * unitPrice)
+  
+  // Context
+  region        Region
+  paymentMethod PaymentMethod
+  status        Status        @default(COMPLETED)
+
+  @@index([date])
+  @@index([region])
+}
+
+enum ExpenseCategory {
+  INPUTS      // Semences, Engrais, Pesticides
+  LABOR       // Main d'oeuvre (récolte, semis)
+  LOGISTICS   // Transport, Stockage
+  EQUIPMENT   // Location tracteur, outils
+  ADMIN       // Frais de gestion, divers
+  TAXES       // Taxes communales, impôts
+}
+
+model Expense {
+  id          String          @id @default(uuid())
+  createdAt   DateTime        @default(now())
+  date        DateTime        // Date of the expense
+  
+  category    ExpenseCategory
+  amount      Float           // In FCFA
+  description String?         // Optional details
+  
+  // Optional linkage to context
+  region      Region?
+  product     ProductType?    // If the expense is specific to a crop (e.g. fertilizer for Maize)
+
+  @@index([date])
+  @@index([category])
+}
