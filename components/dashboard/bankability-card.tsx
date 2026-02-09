@@ -87,10 +87,10 @@ export function BankabilityCard() {
                     <div>
                         <CardTitle className="text-xl font-bold text-foreground flex items-center gap-2">
                             <span className="text-2xl">🏦</span>
-                            Dossier Bancaire
+                            Bankability Record
                         </CardTitle>
-                        <CardDescription className="text-zinc-500">
-                            Éligibilité au financement
+                        <CardDescription className="text-muted-foreground">
+                            Funding Eligibility
                         </CardDescription>
                     </div>
                     <Badge variant="outline" className={cn(
@@ -116,7 +116,7 @@ export function BankabilityCard() {
                                 stroke="currentColor"
                                 strokeWidth="10"
                                 fill="transparent"
-                                className="text-zinc-100"
+                                className="text-secondary"
                             />
                             <circle
                                 cx="80"
@@ -135,27 +135,27 @@ export function BankabilityCard() {
                             <span className={cn("text-4xl font-black", getScoreColor(data.score))}>
                                 {data.score}
                             </span>
-                            <span className="text-xs text-zinc-400 font-medium">/ 100</span>
+                            <span className="text-xs text-muted-foreground font-medium">/ 100</span>
                         </div>
                     </div>
-                    <p className="mt-2 text-sm font-medium text-zinc-500 uppercase tracking-wider">
-                        Score de Crédibilité
+                    <p className="mt-2 text-sm font-medium text-muted-foreground uppercase tracking-wider">
+                        Credibility Score
                     </p>
                 </div>
 
                 {/* Key Metrics Grid */}
                 <div className="grid grid-cols-2 gap-4">
-                    <div className="bg-zinc-50 p-3 rounded-lg border border-zinc-100">
-                        <div className="flex items-center gap-2 text-zinc-500 text-xs mb-1">
-                            <TrendingUp className="w-3 h-3" /> Marge Nette
+                    <div className="bg-muted/50 p-3 rounded-lg border border-border">
+                        <div className="flex items-center gap-2 text-muted-foreground text-xs mb-1">
+                            <TrendingUp className="w-3 h-3" /> Net Margin
                         </div>
                         <div className={cn("text-lg font-bold", data.metrics.netMargin > 0 ? "text-emerald-600" : "text-red-600")}>
                             {data.metrics.marginPercent.toFixed(1)}%
                         </div>
                     </div>
-                    <div className="bg-zinc-50 p-3 rounded-lg border border-zinc-100">
-                        <div className="flex items-center gap-2 text-zinc-500 text-xs mb-1">
-                            <Smartphone className="w-3 h-3" /> Digitalisation
+                    <div className="bg-muted/50 p-3 rounded-lg border border-border">
+                        <div className="flex items-center gap-2 text-muted-foreground text-xs mb-1">
+                            <Smartphone className="w-3 h-3" /> Digitalization
                         </div>
                         <div className="text-lg font-bold text-blue-600">
                             {(data.metrics.digitalRatio * 100).toFixed(0)}%
@@ -166,7 +166,7 @@ export function BankabilityCard() {
                 {/* Feedback Section */}
                 <div className="space-y-2">
                     {data.feedback.map((msg, i) => (
-                        <div key={i} className="flex items-start gap-2 text-sm text-zinc-600 bg-zinc-50 p-2 rounded border border-zinc-100">
+                        <div key={i} className="flex items-start gap-2 text-sm text-foreground bg-muted/30 p-2 rounded border border-border">
                             {msg.includes("Attention") || msg.includes("Améliorez") ? (
                                 <AlertTriangle className="w-4 h-4 text-yellow-500 shrink-0 mt-0.5" />
                             ) : (
@@ -180,12 +180,12 @@ export function BankabilityCard() {
                 <Button
                     className={cn(
                         "w-full text-white font-bold hover:opacity-90 transition-all shadow-sm",
-                        data.score >= 0 ? "bg-emerald-600 hover:bg-emerald-700" : "bg-zinc-200 cursor-not-allowed text-zinc-400"
+                        data.score >= 0 ? "bg-emerald-600 hover:bg-emerald-700" : "bg-muted cursor-not-allowed text-muted-foreground"
                     )}
                     disabled={data.score < 0}
                     onClick={handleDownload}
                 >
-                    {data.score >= 0 ? "📄 Télécharger Dossier Banque" : "🔒 Améliorez votre score"}
+                    {data.score >= 0 ? "📄 Download Bank Report" : "🔒 Improve Your Score"}
                 </Button>
             </CardContent>
         </Card>

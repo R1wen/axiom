@@ -384,10 +384,10 @@ export async function getBankabilityMetrics() {
 
 function getFeedback(score: number, margin: number, cv: number): string[] {
     const feedback = [];
-    if (score >= 70) feedback.push("Excellent profil pour un crédit bancaire.");
-    if (margin < 10) feedback.push("Attention : Vos marges sont faibles. Réduisez les coûts.");
-    if (cv > 0.3) feedback.push("Revenus trop irréguliers. Sécurisez des contrats fixes.");
-    if (score < 50) feedback.push("Améliorez votre traçabilité numérique (Mobile Money).");
+    if (score >= 70) feedback.push("Excellent profile for bank credit.");
+    if (margin < 10) feedback.push("Warning: Low margins. Reduce costs.");
+    if (cv > 0.3) feedback.push("Revenue too irregular. Secure fixed contracts.");
+    if (score < 50) feedback.push("Improve digital traceability (Mobile Money).");
     return feedback;
 }
 

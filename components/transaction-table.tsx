@@ -60,7 +60,7 @@ export function TransactionTable({ transactions }: TransactionTableProps) {
                             onClick={() => handleRowClick(transaction.clientName)}
                         >
                             <TableCell className="text-muted-foreground text-sm font-medium">
-                                {new Date(transaction.date).toLocaleDateString("fr-TG", {
+                                {new Date(transaction.date).toLocaleDateString("en-US", {
                                     day: "numeric",
                                     month: "short",
                                 })}

@@ -52,7 +52,7 @@ export function ExpenseDistributionChart({ data }: ExpenseDistributionChartProps
                         labelStyle={{ color: "#71717a", marginBottom: "4px" }}
                         itemStyle={{ color: "#f43f5e" }}
                         formatter={(value: number | undefined) => [
-                            `${(value || 0).toLocaleString("fr-TG")} FCFA`,
+                            `${(value || 0).toLocaleString("en-US")} FCFA`,
                             "Cost",
                         ]}
                     />

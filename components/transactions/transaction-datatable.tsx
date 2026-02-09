@@ -73,9 +73,9 @@ export function TransactionDatatable({ data }: TransactionDatatableProps) {
                     <TableRow className="hover:bg-transparent">
                         <TableHead className="text-muted-foreground">Date</TableHead>
                         <TableHead className="text-muted-foreground">Client</TableHead>
-                        <TableHead className="text-muted-foreground">Produit</TableHead>
-                        <TableHead className="text-right text-muted-foreground">Montant</TableHead>
-                        <TableHead className="text-center text-muted-foreground">Statut</TableHead>
+                        <TableHead className="text-muted-foreground">Product</TableHead>
+                        <TableHead className="text-right text-muted-foreground">Amount</TableHead>
+                        <TableHead className="text-center text-muted-foreground">Status</TableHead>
                         <TableHead className="text-right text-muted-foreground">Actions</TableHead>
                     </TableRow>
                 </TableHeader>
@@ -83,7 +83,7 @@ export function TransactionDatatable({ data }: TransactionDatatableProps) {
                     {data.map((tx) => (
                         <TableRow key={tx.id} className="hover:bg-muted/50">
                             <TableCell className="font-medium text-foreground">
-                                {new Date(tx.date).toLocaleDateString("fr-TG")}
+                                {new Date(tx.date).toLocaleDateString("en-US")}
                             </TableCell>
                             <TableCell className="text-foreground">{tx.clientName}</TableCell>
                             <TableCell className="text-muted-foreground">
@@ -92,7 +92,7 @@ export function TransactionDatatable({ data }: TransactionDatatableProps) {
                                 </span>
                             </TableCell>
                             <TableCell className="text-right font-bold text-foreground tabular-nums">
-                                {tx.totalAmount.toLocaleString("fr-TG")} FCFA
+                                {tx.totalAmount.toLocaleString("en-US")} FCFA
                             </TableCell>
                             <TableCell className="text-center">
                                 <Badge variant="outline" className={getStatusColor(tx.status)}>
@@ -110,10 +110,10 @@ export function TransactionDatatable({ data }: TransactionDatatableProps) {
                                     <DropdownMenuContent align="end" className="bg-card border text-foreground">
                                         <DropdownMenuLabel>Actions</DropdownMenuLabel>
                                         <DropdownMenuItem onClick={() => handleEdit(tx)} className="cursor-pointer hover:bg-muted focus:bg-muted">
-                                            <Edit2 className="mr-2 h-4 w-4 text-blue-500" /> Modifier
+                                            <Edit2 className="mr-2 h-4 w-4 text-blue-500" /> Edit
                                         </DropdownMenuItem>
                                         <DropdownMenuItem onClick={() => handleDelete(tx.id)} className="cursor-pointer text-red-600 hover:bg-red-50 focus:bg-red-50">
-                                            <Trash2 className="mr-2 h-4 w-4" /> Supprimer
+                                            <Trash2 className="mr-2 h-4 w-4" /> Delete
                                         </DropdownMenuItem>
                                     </DropdownMenuContent>
                                 </DropdownMenu>

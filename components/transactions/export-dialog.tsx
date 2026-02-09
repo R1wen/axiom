@@ -59,11 +59,11 @@ export function ExportDialog() {
 
                 setOpen(false);
             } else {
-                alert("Aucune donnée trouvée pour cette période.");
+                alert("No data found for this period.");
             }
         } catch (error) {
             console.error("Export failed", error);
-            alert("Erreur lors de l'export.");
+            alert("Error during export.");
         } finally {
             setLoading(false);
         }
@@ -74,20 +74,20 @@ export function ExportDialog() {
             <DialogTrigger asChild>
                 <Button variant="outline" className="border-border text-foreground hover:bg-muted gap-2">
                     <FileSpreadsheet className="h-4 w-4" />
-                    Exporter CSV
+                    Export CSV
                 </Button>
             </DialogTrigger>
             <DialogContent className="bg-card border text-foreground sm:max-w-[425px]">
                 <DialogHeader>
-                    <DialogTitle>Exporter les Transactions</DialogTitle>
+                    <DialogTitle>Export Transactions</DialogTitle>
                     <DialogDescription className="text-muted-foreground">
-                        Sélectionnez une période pour exporter vos données en format CSV (Excel).
+                        Select a date range to export your data in CSV format (Excel).
                     </DialogDescription>
                 </DialogHeader>
                 <div className="grid gap-4 py-4">
                     <div className="grid grid-cols-4 items-center gap-4">
                         <Label htmlFor="start" className="text-right text-muted-foreground">
-                            Début
+                            Start Date
                         </Label>
                         <Input
                             id="start"
@@ -99,7 +99,7 @@ export function ExportDialog() {
                     </div>
                     <div className="grid grid-cols-4 items-center gap-4">
                         <Label htmlFor="end" className="text-right text-muted-foreground">
-                            Fin
+                            End Date
                         </Label>
                         <Input
                             id="end"
@@ -112,11 +112,11 @@ export function ExportDialog() {
                 </div>
                 <DialogFooter>
                     <Button variant="ghost" onClick={() => setOpen(false)} className="text-muted-foreground hover:text-foreground">
-                        Annuler
+                        Cancel
                     </Button>
                     <Button onClick={handleExport} disabled={loading} className="bg-primary hover:bg-primary/90 text-primary-foreground gap-2">
                         {loading ? <Loader2 className="h-4 w-4 animate-spin" /> : <Download className="h-4 w-4" />}
-                        Télécharger
+                        Download
                     </Button>
                 </DialogFooter>
             </DialogContent>

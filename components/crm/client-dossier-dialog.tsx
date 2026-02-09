@@ -71,7 +71,7 @@ export function ClientDossierDialog({ clientName, open, onOpenChange }: ClientDo
                                 )}
                             </DialogTitle>
                             <DialogDescription className="text-muted-foreground">
-                                Dossier Client & Analyse Comportementale
+                                Client Folder & Behavioral Analysis
                             </DialogDescription>
                         </div>
                     </div>
@@ -86,15 +86,15 @@ export function ClientDossierDialog({ clientName, open, onOpenChange }: ClientDo
                         {/* Highlights Grid */}
                         <div className="grid grid-cols-1 md:grid-cols-3 gap-4">
                             <div className="bg-muted/30 p-4 rounded-lg border border-border">
-                                <p className="text-xs text-muted-foreground mb-1">Total Dépensé</p>
+                                <p className="text-xs text-muted-foreground mb-1">Total Spent</p>
                                 <p className="text-xl font-bold text-emerald-600">
                                     {(profile.totalSpent / 1000).toFixed(0)}k FCFA
                                 </p>
                             </div>
                             <div className="bg-muted/30 p-4 rounded-lg border border-border">
-                                <p className="text-xs text-muted-foreground mb-1">Dernier Achat</p>
+                                <p className="text-xs text-muted-foreground mb-1">Last Purchase</p>
                                 <p className="text-xl font-bold text-foreground">
-                                    Il y a {profile.daysSinceLast}j
+                                    {profile.daysSinceLast} days ago
                                 </p>
                             </div>
                             <div className={cn(
@@ -106,7 +106,7 @@ export function ClientDossierDialog({ clientName, open, onOpenChange }: ClientDo
                                 <p className={cn("text-xs mb-1",
                                     profile.churnRisk === 'HIGH' ? "text-red-600" :
                                         profile.churnRisk === 'MEDIUM' ? "text-yellow-600" : "text-emerald-600"
-                                )}>Risque de Départ (Churn)</p>
+                                )}>Churn Risk</p>
                                 <div className="flex items-center gap-2">
                                     {profile.churnRisk === 'HIGH' && <AlertTriangle className="w-5 h-5 text-red-500" />}
                                     <p className={cn("text-xl font-bold",
@@ -121,27 +121,27 @@ export function ClientDossierDialog({ clientName, open, onOpenChange }: ClientDo
 
                         {/* Habits Section */}
                         <div className="space-y-3">
-                            <h4 className="text-sm font-semibold text-foreground uppercase tracking-wider">Habitudes</h4>
+                            <h4 className="text-sm font-semibold text-foreground uppercase tracking-wider">Habits</h4>
                             <div className="grid grid-cols-1 sm:grid-cols-2 gap-4">
                                 <div className="flex items-center gap-3 bg-muted/30 p-3 rounded border border-border">
                                     <ShoppingBag className="w-5 h-5 text-purple-500" />
                                     <div>
-                                        <p className="text-xs text-muted-foreground">Produit Préféré</p>
+                                        <p className="text-xs text-muted-foreground">Favorite Product</p>
                                         <p className="font-medium text-foreground">{profile.preferredProduct}</p>
                                     </div>
                                 </div>
                                 <div className="flex items-center gap-3 bg-muted/30 p-3 rounded border border-border">
                                     <CreditCard className="w-5 h-5 text-blue-500" />
                                     <div>
-                                        <p className="text-xs text-muted-foreground">Paiement Habituel</p>
+                                        <p className="text-xs text-muted-foreground">Payment Method</p>
                                         <p className="font-medium text-foreground">{profile.preferredPayment}</p>
                                     </div>
                                 </div>
                                 <div className="flex items-center gap-3 bg-muted/30 p-3 rounded border border-border">
                                     <CalendarDays className="w-5 h-5 text-orange-500" />
                                     <div>
-                                        <p className="text-xs text-muted-foreground">Fréquence d'achat</p>
-                                        <p className="font-medium text-foreground">Tous les {profile.frequency} jours</p>
+                                        <p className="text-xs text-muted-foreground">Purchase Frequency</p>
+                                        <p className="font-medium text-foreground">Every {profile.frequency} days</p>
                                     </div>
                                 </div>
                             </div>
@@ -152,10 +152,10 @@ export function ClientDossierDialog({ clientName, open, onOpenChange }: ClientDo
                             <div className="bg-red-50 border border-red-200 p-4 rounded-lg flex items-start gap-3">
                                 <AlertTriangle className="w-5 h-5 text-red-500 shrink-0 mt-0.5" />
                                 <div>
-                                    <h5 className="font-bold text-red-700 text-sm">Action Recommandée</h5>
+                                    <h5 className="font-bold text-red-700 text-sm">Recommended Action</h5>
                                     <p className="text-sm text-red-600 mt-1">
-                                        Ce client (VIP {profile.vipStatus}) n'est pas venu depuis {profile.daysSinceLast} jours (habituellement {profile.frequency}j).
-                                        Appelez-le maintenant pour proposer une promotion sur le {profile.preferredProduct}.
+                                        This client (VIP {profile.vipStatus}) has not visited in {profile.daysSinceLast} days (usually {profile.frequency}d).
+                                        Call them now to offer a promotion on {profile.preferredProduct}.
                                     </p>
                                 </div>
                             </div>
@@ -163,7 +163,7 @@ export function ClientDossierDialog({ clientName, open, onOpenChange }: ClientDo
                     </div>
                 ) : (
                     <div className="text-center py-10 text-muted-foreground">
-                        Impossible de charger le profil.
+                        Unable to load profile.
                     </div>
                 )}
             </DialogContent>

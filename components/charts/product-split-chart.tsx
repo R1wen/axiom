@@ -56,7 +56,7 @@ export function ProductSplitChart({ data }: ProductSplitChartProps) {
                         labelStyle={{ color: "#71717a", marginBottom: "4px" }}
                         itemStyle={{ color: "#D4AF37" }}
                         formatter={(value: number | undefined) => [
-                            `${(value ?? 0).toLocaleString("fr-TG")} FCFA`,
+                            `${(value ?? 0).toLocaleString("en-US")} FCFA`,
                             "Revenue",
                         ]}
                     />

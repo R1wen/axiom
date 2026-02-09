@@ -57,7 +57,7 @@ export function FinancialTrendChart({ data }: FinancialTrendChartProps) {
                         labelStyle={{ color: "#71717a", marginBottom: "4px" }}
                         itemStyle={{ color: "#D4AF37" }}
                         formatter={(value: number | undefined) => [
-                            `${value?.toLocaleString("fr-TG") ?? 0} FCFA`,
+                            `${value?.toLocaleString("en-US") ?? 0} FCFA`,
                             "Revenue",
                         ]}
                     />

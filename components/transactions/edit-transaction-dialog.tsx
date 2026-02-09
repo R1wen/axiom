@@ -64,7 +64,7 @@ export function EditTransactionDialog({ open, onOpenChange, transaction, onSucce
         <Dialog open={open} onOpenChange={onOpenChange}>
             <DialogContent className="bg-card border text-foreground">
                 <DialogHeader>
-                    <DialogTitle>Modifier Transaction</DialogTitle>
+                    <DialogTitle>Edit Transaction</DialogTitle>
                 </DialogHeader>
 
                 <form onSubmit={handleSubmit} className="space-y-4">
@@ -74,13 +74,13 @@ export function EditTransactionDialog({ open, onOpenChange, transaction, onSucce
                     </div>
 
                     <div className="grid gap-2">
-                        <Label>Produit</Label>
+                        <Label>Product</Label>
                         <Input value={transaction.product} disabled className="bg-muted border-input" />
                     </div>
 
                     <div className="grid grid-cols-2 gap-4">
                         <div className="grid gap-2">
-                            <Label>Quantité (kg)</Label>
+                            <Label>Quantity (kg)</Label>
                             <Input
                                 type="number"
                                 value={formData.quantity}
@@ -89,7 +89,7 @@ export function EditTransactionDialog({ open, onOpenChange, transaction, onSucce
                             />
                         </div>
                         <div className="grid gap-2">
-                            <Label>Prix Unitaire</Label>
+                            <Label>Unit Price</Label>
                             <Input
                                 type="number"
                                 value={formData.unitPrice}
@@ -100,7 +100,7 @@ export function EditTransactionDialog({ open, onOpenChange, transaction, onSucce
                     </div>
 
                     <div className="grid gap-2">
-                        <Label>Statut</Label>
+                        <Label>Status</Label>
                         <Select
                             value={formData.status}
                             onValueChange={(val) => setFormData({ ...formData, status: val as Status })}
@@ -109,20 +109,20 @@ export function EditTransactionDialog({ open, onOpenChange, transaction, onSucce
                                 <SelectValue />
                             </SelectTrigger>
                             <SelectContent className="bg-card border-input">
-                                <SelectItem value={Status.PENDING}>En Attente</SelectItem>
-                                <SelectItem value={Status.COMPLETED}>Complété</SelectItem>
-                                <SelectItem value={Status.CANCELLED}>Annulé</SelectItem>
+                                <SelectItem value={Status.PENDING}>Pending</SelectItem>
+                                <SelectItem value={Status.COMPLETED}>Completed</SelectItem>
+                                <SelectItem value={Status.CANCELLED}>Cancelled</SelectItem>
                             </SelectContent>
                         </Select>
                     </div>
 
                     <DialogFooter>
                         <Button type="button" variant="ghost" onClick={() => onOpenChange(false)}>
-                            Annuler
+                            Cancel
                         </Button>
                         <Button type="submit" disabled={loading} className="bg-primary hover:bg-primary/90 text-primary-foreground">
                             {loading && <Loader2 className="mr-2 h-4 w-4 animate-spin" />}
-                            Enregistrer
+                            Save
                         </Button>
                     </DialogFooter>
                 </form>
