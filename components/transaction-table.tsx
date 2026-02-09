@@ -1,6 +1,10 @@
+"use client";
+
+import { useState } from "react";
 import { Table, TableBody, TableCell, TableHead, TableHeader, TableRow } from "@/components/ui/table";
 import { Badge } from "@/components/ui/badge";
 import { ProductType, Region, Status } from "@prisma/client";
+import { ClientDossierDialog } from "@/components/crm/client-dossier-dialog";
 
 interface Transaction {
     id: string;
@@ -17,66 +21,75 @@ interface TransactionTableProps {
 }
 
 export function TransactionTable({ transactions }: TransactionTableProps) {
+    const [selectedClient, setSelectedClient] = useState<string | null>(null);
+    const [dialogOpen, setDialogOpen] = useState(false);
+
+    const handleRowClick = (clientName: string) => {
+        setSelectedClient(clientName);
+        setDialogOpen(true);
+    };
+
     const getStatusColor = (status: Status) => {
         switch (status) {
             case Status.COMPLETED:
-                return "bg-emerald-500/10 text-emerald-500 hover:bg-emerald-500/20";
+                return "bg-emerald-500/10 text-emerald-500 border-emerald-500/20";
             case Status.PENDING:
-                return "bg-yellow-500/10 text-yellow-500 hover:bg-yellow-500/20";
+                return "bg-yellow-500/10 text-yellow-500 border-yellow-500/20";
             case Status.CANCELLED:
-                return "bg-red-500/10 text-red-500 hover:bg-red-500/20";
+                return "bg-red-500/10 text-red-500 border-red-500/20";
         }
     };
 
     return (
-        <div className="rounded-lg border border-white/[0.08] bg-white/[0.02] backdrop-blur-md overflow-hidden">
+        <div className="rounded-xl border border-white/[0.08] bg-zinc-900/40 backdrop-blur-md overflow-hidden">
             <Table>
-                <TableHeader>
+                <TableHeader className="bg-zinc-950/50">
                     <TableRow className="border-white/[0.08] hover:bg-transparent">
-                        <TableHead className="text-zinc-500 font-medium">Date</TableHead>
-                        <TableHead className="text-zinc-500 font-medium">Client</TableHead>
-                        <TableHead className="text-zinc-500 font-medium">Product</TableHead>
-                        <TableHead className="text-zinc-500 font-medium">Region</TableHead>
-                        <TableHead className="text-right text-zinc-500 font-medium">Amount</TableHead>
-                        <TableHead className="text-center text-zinc-500 font-medium">Status</TableHead>
+                        <TableHead className="text-zinc-500 font-bold uppercase text-xs tracking-wider">Date</TableHead>
+                        <TableHead className="text-zinc-500 font-bold uppercase text-xs tracking-wider">Client</TableHead>
+                        <TableHead className="text-zinc-500 font-bold uppercase text-xs tracking-wider">Product</TableHead>
+                        <TableHead className="text-zinc-500 font-bold uppercase text-xs tracking-wider">Region</TableHead>
+                        <TableHead className="text-right text-zinc-500 font-bold uppercase text-xs tracking-wider">Amount</TableHead>
                     </TableRow>
                 </TableHeader>
                 <TableBody>
                     {transactions.map((transaction) => (
                         <TableRow
                             key={transaction.id}
-                            className="border-white/[0.08] hover:bg-white/[0.04] transition-colors"
+                            className="border-white/[0.08] hover:bg-white/[0.04] transition-colors cursor-pointer group"
+                            onClick={() => handleRowClick(transaction.clientName)}
                         >
-                            <TableCell className="text-zinc-400 text-sm">
+                            <TableCell className="text-zinc-400 text-sm font-medium">
                                 {new Date(transaction.date).toLocaleDateString("fr-TG", {
-                                    month: "short",
                                     day: "numeric",
+                                    month: "short",
                                 })}
                             </TableCell>
-                            <TableCell className="text-zinc-200 font-medium">
+                            <TableCell className="text-zinc-200 font-bold group-hover:text-emerald-400 transition-colors">
                                 {transaction.clientName}
                             </TableCell>
                             <TableCell className="text-zinc-400 text-sm">
-                                {transaction.product.charAt(0) + transaction.product.slice(1).toLowerCase()}
+                                {transaction.product}
                             </TableCell>
-                            <TableCell className="text-zinc-400 text-sm">
+                            <TableCell className="text-zinc-500 text-xs uppercase tracking-wide">
                                 {transaction.region}
                             </TableCell>
                             <TableCell className="text-right">
-                                <span className="font-mono font-semibold text-zinc-200 tabular-nums">
-                                    {transaction.totalAmount.toLocaleString("fr-TG")}
+                                <span className="font-bold text-zinc-200 tabular-nums">
+                                    {(transaction.totalAmount).toLocaleString("fr-TG")}
                                 </span>
-                                <span className="ml-1 text-xs text-zinc-500">FCFA</span>
-                            </TableCell>
-                            <TableCell className="text-center">
-                                <Badge className={getStatusColor(transaction.status)} variant="outline">
-                                    {transaction.status}
-                                </Badge>
+                                <span className="ml-1 text-xs text-zinc-600">FCFA</span>
                             </TableCell>
                         </TableRow>
                     ))}
                 </TableBody>
             </Table>
+
+            <ClientDossierDialog
+                clientName={selectedClient}
+                open={dialogOpen}
+                onOpenChange={setDialogOpen}
+            />
         </div>
     );
 }

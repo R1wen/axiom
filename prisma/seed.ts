@@ -43,17 +43,15 @@ function randomFloat(min: number, max: number, decimals: number = 2): number {
 }
 
 // Generate a date within the last 6 months, weighted toward recent dates
+// Generate a date within the last 90 days (3 months)
+// Generate a date within the last 90 days (3 months)
 function generateRecentDate(): Date {
     const now = new Date();
-    const sixMonthsAgo = new Date();
-    sixMonthsAgo.setMonth(now.getMonth() - 6);
-
-    // Weighted toward recent dates (exponential distribution)
-    const randomFactor = Math.pow(Math.random(), 2); // Square to bias toward 1
-    const timeRange = now.getTime() - sixMonthsAgo.getTime();
-    const offset = timeRange * randomFactor;
-
-    return new Date(sixMonthsAgo.getTime() + offset);
+    const threeMonthsAgo = new Date();
+    threeMonthsAgo.setDate(now.getDate() - 90);
+    const timeRange = now.getTime() - threeMonthsAgo.getTime();
+    const randomTime = Math.random() * timeRange;
+    return new Date(threeMonthsAgo.getTime() + randomTime);
 }
 
 async function seed() {
@@ -61,15 +59,16 @@ async function seed() {
 
     // Clear existing data
     await prisma.transaction.deleteMany({});
-    console.log('🗑️  Cleared existing transactions');
+    await prisma.expense.deleteMany({});
+    console.log('🗑️  Cleared existing transactions and expenses');
 
     const transactions = [];
     const products = Object.values(ProductType);
     const regions = Object.values(Region);
     const paymentMethods = Object.values(PaymentMethod);
 
-    // Generate 50 realistic transactions
-    for (let i = 0; i < 50; i++) {
+    // Generate 200 realistic transactions
+    for (let i = 0; i < 200; i++) {
         const product = randomElement(products);
         const region = randomElement([Region.SAVANES, Region.MARITIME, Region.PLATEAUX]); // Focus on main agricultural regions
 
