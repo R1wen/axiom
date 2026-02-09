@@ -49,11 +49,11 @@ export function ClientDossierDialog({ clientName, open, onOpenChange }: ClientDo
 
     return (
         <Dialog open={open} onOpenChange={onOpenChange}>
-            <DialogContent className="bg-zinc-950 border-zinc-800 text-zinc-100 max-w-2xl">
+            <DialogContent className="bg-card border text-foreground max-w-2xl">
                 <DialogHeader>
                     <div className="flex items-center gap-3">
-                        <div className="h-12 w-12 rounded-full bg-zinc-900 flex items-center justify-center border border-zinc-800">
-                            <User className="w-6 h-6 text-zinc-400" />
+                        <div className="h-12 w-12 rounded-full bg-muted flex items-center justify-center border border-border">
+                            <User className="w-6 h-6 text-muted-foreground" />
                         </div>
                         <div>
                             <DialogTitle className="text-xl font-bold flex items-center gap-2">
@@ -61,16 +61,16 @@ export function ClientDossierDialog({ clientName, open, onOpenChange }: ClientDo
                                 {profile && (
                                     <Badge variant="outline" className={cn(
                                         "ml-2 border-none",
-                                        profile.vipStatus === 'GOLD' ? "bg-amber-500/20 text-amber-500" :
-                                            profile.vipStatus === 'SILVER' ? "bg-zinc-400/20 text-zinc-300" :
-                                                "bg-orange-700/20 text-orange-700"
+                                        profile.vipStatus === 'GOLD' ? "bg-amber-100 text-amber-600" :
+                                            profile.vipStatus === 'SILVER' ? "bg-zinc-100 text-zinc-600" :
+                                                "bg-orange-100 text-orange-700"
                                     )}>
                                         <Trophy className="w-3 h-3 mr-1" />
                                         {profile.vipStatus}
                                     </Badge>
                                 )}
                             </DialogTitle>
-                            <DialogDescription className="text-zinc-500">
+                            <DialogDescription className="text-muted-foreground">
                                 Dossier Client & Analyse Comportementale
                             </DialogDescription>
                         </div>
@@ -79,39 +79,39 @@ export function ClientDossierDialog({ clientName, open, onOpenChange }: ClientDo
 
                 {loading ? (
                     <div className="h-40 flex items-center justify-center">
-                        <Loader2 className="w-8 h-8 animate-spin text-emerald-500" />
+                        <Loader2 className="w-8 h-8 animate-spin text-primary" />
                     </div>
                 ) : profile ? (
                     <div className="space-y-6 mt-4">
                         {/* Highlights Grid */}
                         <div className="grid grid-cols-1 md:grid-cols-3 gap-4">
-                            <div className="bg-zinc-900/50 p-4 rounded-lg border border-zinc-800">
-                                <p className="text-xs text-zinc-500 mb-1">Total Dépensé</p>
-                                <p className="text-xl font-bold text-emerald-400">
+                            <div className="bg-muted/30 p-4 rounded-lg border border-border">
+                                <p className="text-xs text-muted-foreground mb-1">Total Dépensé</p>
+                                <p className="text-xl font-bold text-emerald-600">
                                     {(profile.totalSpent / 1000).toFixed(0)}k FCFA
                                 </p>
                             </div>
-                            <div className="bg-zinc-900/50 p-4 rounded-lg border border-zinc-800">
-                                <p className="text-xs text-zinc-500 mb-1">Dernier Achat</p>
-                                <p className="text-xl font-bold text-zinc-200">
+                            <div className="bg-muted/30 p-4 rounded-lg border border-border">
+                                <p className="text-xs text-muted-foreground mb-1">Dernier Achat</p>
+                                <p className="text-xl font-bold text-foreground">
                                     Il y a {profile.daysSinceLast}j
                                 </p>
                             </div>
                             <div className={cn(
                                 "p-4 rounded-lg border",
-                                profile.churnRisk === 'HIGH' ? "bg-red-500/10 border-red-500/30" :
-                                    profile.churnRisk === 'MEDIUM' ? "bg-yellow-500/10 border-yellow-500/30" :
-                                        "bg-emerald-500/10 border-emerald-500/30"
+                                profile.churnRisk === 'HIGH' ? "bg-red-50 border-red-200" :
+                                    profile.churnRisk === 'MEDIUM' ? "bg-yellow-50 border-yellow-200" :
+                                        "bg-emerald-50 border-emerald-200"
                             )}>
                                 <p className={cn("text-xs mb-1",
-                                    profile.churnRisk === 'HIGH' ? "text-red-400" :
-                                        profile.churnRisk === 'MEDIUM' ? "text-yellow-400" : "text-emerald-400"
+                                    profile.churnRisk === 'HIGH' ? "text-red-600" :
+                                        profile.churnRisk === 'MEDIUM' ? "text-yellow-600" : "text-emerald-600"
                                 )}>Risque de Départ (Churn)</p>
                                 <div className="flex items-center gap-2">
                                     {profile.churnRisk === 'HIGH' && <AlertTriangle className="w-5 h-5 text-red-500" />}
                                     <p className={cn("text-xl font-bold",
-                                        profile.churnRisk === 'HIGH' ? "text-red-500" :
-                                            profile.churnRisk === 'MEDIUM' ? "text-yellow-500" : "text-emerald-500"
+                                        profile.churnRisk === 'HIGH' ? "text-red-600" :
+                                            profile.churnRisk === 'MEDIUM' ? "text-yellow-600" : "text-emerald-600"
                                     )}>
                                         {profile.churnRisk}
                                     </p>
@@ -121,27 +121,27 @@ export function ClientDossierDialog({ clientName, open, onOpenChange }: ClientDo
 
                         {/* Habits Section */}
                         <div className="space-y-3">
-                            <h4 className="text-sm font-semibold text-zinc-300 uppercase tracking-wider">Habitudes</h4>
+                            <h4 className="text-sm font-semibold text-foreground uppercase tracking-wider">Habitudes</h4>
                             <div className="grid grid-cols-1 sm:grid-cols-2 gap-4">
-                                <div className="flex items-center gap-3 bg-zinc-900/30 p-3 rounded border border-zinc-800/50">
-                                    <ShoppingBag className="w-5 h-5 text-purple-400" />
+                                <div className="flex items-center gap-3 bg-muted/30 p-3 rounded border border-border">
+                                    <ShoppingBag className="w-5 h-5 text-purple-500" />
                                     <div>
-                                        <p className="text-xs text-zinc-500">Produit Préféré</p>
-                                        <p className="font-medium text-zinc-200">{profile.preferredProduct}</p>
+                                        <p className="text-xs text-muted-foreground">Produit Préféré</p>
+                                        <p className="font-medium text-foreground">{profile.preferredProduct}</p>
                                     </div>
                                 </div>
-                                <div className="flex items-center gap-3 bg-zinc-900/30 p-3 rounded border border-zinc-800/50">
-                                    <CreditCard className="w-5 h-5 text-blue-400" />
+                                <div className="flex items-center gap-3 bg-muted/30 p-3 rounded border border-border">
+                                    <CreditCard className="w-5 h-5 text-blue-500" />
                                     <div>
-                                        <p className="text-xs text-zinc-500">Paiement Habituel</p>
-                                        <p className="font-medium text-zinc-200">{profile.preferredPayment}</p>
+                                        <p className="text-xs text-muted-foreground">Paiement Habituel</p>
+                                        <p className="font-medium text-foreground">{profile.preferredPayment}</p>
                                     </div>
                                 </div>
-                                <div className="flex items-center gap-3 bg-zinc-900/30 p-3 rounded border border-zinc-800/50">
-                                    <CalendarDays className="w-5 h-5 text-orange-400" />
+                                <div className="flex items-center gap-3 bg-muted/30 p-3 rounded border border-border">
+                                    <CalendarDays className="w-5 h-5 text-orange-500" />
                                     <div>
-                                        <p className="text-xs text-zinc-500">Fréquence d'achat</p>
-                                        <p className="font-medium text-zinc-200">Tous les {profile.frequency} jours</p>
+                                        <p className="text-xs text-muted-foreground">Fréquence d'achat</p>
+                                        <p className="font-medium text-foreground">Tous les {profile.frequency} jours</p>
                                     </div>
                                 </div>
                             </div>
@@ -149,11 +149,11 @@ export function ClientDossierDialog({ clientName, open, onOpenChange }: ClientDo
 
                         {/* Actionable Advice */}
                         {profile.churnRisk === 'HIGH' && (
-                            <div className="bg-red-950/30 border border-red-900/50 p-4 rounded-lg flex items-start gap-3">
+                            <div className="bg-red-50 border border-red-200 p-4 rounded-lg flex items-start gap-3">
                                 <AlertTriangle className="w-5 h-5 text-red-500 shrink-0 mt-0.5" />
                                 <div>
-                                    <h5 className="font-bold text-red-400 text-sm">Action Recommandée</h5>
-                                    <p className="text-sm text-red-200/70 mt-1">
+                                    <h5 className="font-bold text-red-700 text-sm">Action Recommandée</h5>
+                                    <p className="text-sm text-red-600 mt-1">
                                         Ce client (VIP {profile.vipStatus}) n'est pas venu depuis {profile.daysSinceLast} jours (habituellement {profile.frequency}j).
                                         Appelez-le maintenant pour proposer une promotion sur le {profile.preferredProduct}.
                                     </p>
@@ -162,7 +162,7 @@ export function ClientDossierDialog({ clientName, open, onOpenChange }: ClientDo
                         )}
                     </div>
                 ) : (
-                    <div className="text-center py-10 text-zinc-500">
+                    <div className="text-center py-10 text-muted-foreground">
                         Impossible de charger le profil.
                     </div>
                 )}

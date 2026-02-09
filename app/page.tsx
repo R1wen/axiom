@@ -20,11 +20,11 @@ export default async function Home() {
   const formattedVolume = `${(metrics.totalVolume / 1000).toFixed(1)}`;
 
   return (
-    <div className="min-h-screen bg-[#09090b] p-6 font-sans">
+    <div className="min-h-screen bg-background p-6 font-sans text-foreground">
       {/* Header */}
       <header className="mb-8 flex flex-col md:flex-row md:items-center md:justify-between gap-4">
         <div>
-          <h1 className="text-4xl font-bold text-transparent tracking-tight bg-linear-to-r from-white to-zinc-500 bg-clip-text">
+          <h1 className="text-4xl font-bold tracking-tight text-primary">
             AXIOM
           </h1>
           <p className="mt-1 text-sm text-zinc-500 font-medium">
@@ -89,9 +89,9 @@ export default async function Home() {
         {/* Middle Section: Main Charts & Bankability (Visual Focus) */}
         <div className="lg:col-span-8 space-y-6">
           {/* Revenue Trend - Primary Chart */}
-          <div className="h-[400px] rounded-xl border border-white/[0.08] bg-zinc-900/40 backdrop-blur-md p-6 shadow-xl">
-            <h3 className="mb-4 text-lg font-bold text-zinc-100 flex items-center gap-2">
-              <TrendingUp className="w-5 h-5 text-emerald-500" />
+          <div className="h-[400px] rounded-xl border bg-card p-6 shadow-sm">
+            <h3 className="mb-4 text-lg font-bold text-foreground flex items-center gap-2">
+              <TrendingUp className="w-5 h-5 text-primary" />
               Tendance des Revenus
             </h3>
             <div className="h-[320px]">
@@ -101,16 +101,16 @@ export default async function Home() {
 
           {/* Secondary Charts Grid */}
           <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
-            <div className="h-[350px] rounded-xl border border-white/[0.08] bg-zinc-900/40 backdrop-blur-md p-6">
-              <h3 className="mb-4 text-lg font-bold text-zinc-100">
+            <div className="h-[350px] rounded-xl border bg-card p-6 shadow-sm">
+              <h3 className="mb-4 text-lg font-bold text-foreground">
                 Répartition Produits
               </h3>
               <div className="h-[270px]">
                 <ProductSplitChart data={metrics.productDistribution} />
               </div>
             </div>
-            <div className="h-[350px] rounded-xl border border-white/[0.08] bg-zinc-900/40 backdrop-blur-md p-6">
-              <h3 className="mb-4 text-lg font-bold text-zinc-100">
+            <div className="h-[350px] rounded-xl border bg-card p-6 shadow-sm">
+              <h3 className="mb-4 text-lg font-bold text-foreground">
                 Structure des Coûts
               </h3>
               <div className="h-[270px]">
@@ -133,16 +133,16 @@ export default async function Home() {
           </div>
 
           {/* Recent Transactions */}
-          <div className="rounded-xl border border-white/[0.08] bg-zinc-900/40 backdrop-blur-md overflow-hidden">
-            <div className="p-4 border-b border-white/[0.08] flex items-center justify-between">
-              <h3 className="font-bold text-zinc-100">
+          <div className="rounded-xl border bg-card shadow-sm overflow-hidden">
+            <div className="p-4 border-b flex items-center justify-between">
+              <h3 className="font-bold text-foreground">
                 Dernières Transactions
               </h3>
               <div className="flex items-center gap-2">
-                <span className="text-xs text-zinc-500 bg-zinc-800 px-2 py-1 rounded-full">
+                <span className="text-xs text-zinc-50 bg-zinc-100 px-2 py-1 rounded-full">
                   Temps réel
                 </span>
-                <Link href="/transactions" className="text-xs text-emerald-500 hover:text-emerald-400 font-medium">
+                <Link href="/transactions" className="text-xs text-primary hover:text-amber-600 font-medium">
                   Voir Tout →
                 </Link>
               </div>

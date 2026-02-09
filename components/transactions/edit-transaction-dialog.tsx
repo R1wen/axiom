@@ -62,7 +62,7 @@ export function EditTransactionDialog({ open, onOpenChange, transaction, onSucce
 
     return (
         <Dialog open={open} onOpenChange={onOpenChange}>
-            <DialogContent className="bg-zinc-950 border-zinc-800 text-zinc-100">
+            <DialogContent className="bg-card border text-foreground">
                 <DialogHeader>
                     <DialogTitle>Modifier Transaction</DialogTitle>
                 </DialogHeader>
@@ -70,12 +70,12 @@ export function EditTransactionDialog({ open, onOpenChange, transaction, onSucce
                 <form onSubmit={handleSubmit} className="space-y-4">
                     <div className="grid gap-2">
                         <Label>Client</Label>
-                        <Input value={transaction.clientName} disabled className="bg-zinc-900 border-zinc-800" />
+                        <Input value={transaction.clientName} disabled className="bg-muted border-input" />
                     </div>
 
                     <div className="grid gap-2">
                         <Label>Produit</Label>
-                        <Input value={transaction.product} disabled className="bg-zinc-900 border-zinc-800" />
+                        <Input value={transaction.product} disabled className="bg-muted border-input" />
                     </div>
 
                     <div className="grid grid-cols-2 gap-4">
@@ -85,7 +85,7 @@ export function EditTransactionDialog({ open, onOpenChange, transaction, onSucce
                                 type="number"
                                 value={formData.quantity}
                                 onChange={(e) => setFormData({ ...formData, quantity: Number(e.target.value) })}
-                                className="bg-zinc-900 border-zinc-800"
+                                className="bg-card border-input"
                             />
                         </div>
                         <div className="grid gap-2">
@@ -94,7 +94,7 @@ export function EditTransactionDialog({ open, onOpenChange, transaction, onSucce
                                 type="number"
                                 value={formData.unitPrice}
                                 onChange={(e) => setFormData({ ...formData, unitPrice: Number(e.target.value) })}
-                                className="bg-zinc-900 border-zinc-800"
+                                className="bg-card border-input"
                             />
                         </div>
                     </div>
@@ -105,10 +105,10 @@ export function EditTransactionDialog({ open, onOpenChange, transaction, onSucce
                             value={formData.status}
                             onValueChange={(val) => setFormData({ ...formData, status: val as Status })}
                         >
-                            <SelectTrigger className="bg-zinc-900 border-zinc-800">
+                            <SelectTrigger className="bg-card border-input">
                                 <SelectValue />
                             </SelectTrigger>
-                            <SelectContent className="bg-zinc-900 border-zinc-800">
+                            <SelectContent className="bg-card border-input">
                                 <SelectItem value={Status.PENDING}>En Attente</SelectItem>
                                 <SelectItem value={Status.COMPLETED}>Complété</SelectItem>
                                 <SelectItem value={Status.CANCELLED}>Annulé</SelectItem>
@@ -120,7 +120,7 @@ export function EditTransactionDialog({ open, onOpenChange, transaction, onSucce
                         <Button type="button" variant="ghost" onClick={() => onOpenChange(false)}>
                             Annuler
                         </Button>
-                        <Button type="submit" disabled={loading} className="bg-emerald-500 hover:bg-emerald-600 text-black">
+                        <Button type="submit" disabled={loading} className="bg-primary hover:bg-primary/90 text-primary-foreground">
                             {loading && <Loader2 className="mr-2 h-4 w-4 animate-spin" />}
                             Enregistrer
                         </Button>

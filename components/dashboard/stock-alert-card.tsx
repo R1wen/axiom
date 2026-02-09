@@ -47,10 +47,10 @@ export function StockAlertCard() {
     );
 
     if (alerts.length === 0) return (
-        <Card className="h-full border-zinc-800 bg-zinc-900/40 backdrop-blur-md">
+        <Card className="h-full border bg-card shadow-sm flex flex-col justify-center">
             <CardHeader>
-                <CardTitle className="text-zinc-100 flex items-center gap-2">
-                    <Clock className="w-5 h-5 text-emerald-500" />
+                <CardTitle className="text-foreground flex items-center gap-2">
+                    <Clock className="w-5 h-5 text-emerald-600" />
                     Rotation des Stocks
                 </CardTitle>
             </CardHeader>
@@ -62,7 +62,7 @@ export function StockAlertCard() {
     );
 
     return (
-        <Card className="border-red-500/20 bg-red-500/5 backdrop-blur-md relative overflow-hidden">
+        <Card className="border-red-200 bg-red-50/50 shadow-sm relative overflow-hidden">
             {/* Pulse Animation for Critical Alert */}
             <div className="absolute top-0 right-0 p-3">
                 <span className="relative flex h-3 w-3">
@@ -72,26 +72,26 @@ export function StockAlertCard() {
             </div>
 
             <CardHeader className="pb-3">
-                <CardTitle className="text-lg font-bold text-red-100 flex items-center gap-2">
-                    <AlertTriangle className="w-5 h-5 text-red-500" />
+                <CardTitle className="text-lg font-bold text-red-900 flex items-center gap-2">
+                    <AlertTriangle className="w-5 h-5 text-red-600" />
                     Alerte Stock Dormant
                 </CardTitle>
-                <CardDescription className="text-red-200/60">
+                <CardDescription className="text-red-700">
                     Ces produits ne se vendent pas assez vite.
                 </CardDescription>
             </CardHeader>
 
             <CardContent className="space-y-3">
                 {alerts.slice(0, 3).map((item) => (
-                    <div key={item.product} className="flex items-center justify-between bg-zinc-950/50 p-3 rounded-lg border border-red-500/10">
+                    <div key={item.product} className="flex items-center justify-between bg-white p-3 rounded-lg border border-red-100 shadow-sm">
                         <div>
-                            <p className="font-bold text-zinc-200">{item.product}</p>
+                            <p className="font-bold text-zinc-900">{item.product}</p>
                             <p className="text-xs text-zinc-500">
-                                Dernier vente : il y a <span className="text-red-400 font-bold">{item.daysSinceLastSale} jours</span>
+                                Dernier vente : il y a <span className="text-red-600 font-bold">{item.daysSinceLastSale} jours</span>
                             </p>
                         </div>
                         <Badge variant="outline" className={cn(
-                            "border-red-500/30 text-red-400 bg-red-500/10"
+                            "border-red-200 text-red-600 bg-red-50"
                         )}>
                             Critique
                         </Badge>

@@ -67,31 +67,31 @@ export function TransactionDatatable({ data }: TransactionDatatableProps) {
     };
 
     return (
-        <div className="rounded-md border border-zinc-800">
+        <div className="rounded-md border bg-card shadow-sm">
             <Table>
-                <TableHeader className="bg-zinc-900/50">
-                    <TableRow className="border-zinc-800 hover:bg-zinc-900/50">
-                        <TableHead className="text-zinc-400">Date</TableHead>
-                        <TableHead className="text-zinc-400">Client</TableHead>
-                        <TableHead className="text-zinc-400">Produit</TableHead>
-                        <TableHead className="text-right text-zinc-400">Montant</TableHead>
-                        <TableHead className="text-center text-zinc-400">Statut</TableHead>
-                        <TableHead className="text-right text-zinc-400">Actions</TableHead>
+                <TableHeader className="bg-muted/50">
+                    <TableRow className="hover:bg-transparent">
+                        <TableHead className="text-muted-foreground">Date</TableHead>
+                        <TableHead className="text-muted-foreground">Client</TableHead>
+                        <TableHead className="text-muted-foreground">Produit</TableHead>
+                        <TableHead className="text-right text-muted-foreground">Montant</TableHead>
+                        <TableHead className="text-center text-muted-foreground">Statut</TableHead>
+                        <TableHead className="text-right text-muted-foreground">Actions</TableHead>
                     </TableRow>
                 </TableHeader>
                 <TableBody>
                     {data.map((tx) => (
-                        <TableRow key={tx.id} className="border-zinc-800 hover:bg-zinc-900/50">
-                            <TableCell className="font-medium text-zinc-300">
+                        <TableRow key={tx.id} className="hover:bg-muted/50">
+                            <TableCell className="font-medium text-foreground">
                                 {new Date(tx.date).toLocaleDateString("fr-TG")}
                             </TableCell>
-                            <TableCell className="text-zinc-300">{tx.clientName}</TableCell>
-                            <TableCell className="text-zinc-300">
-                                <span className="px-2 py-1 rounded bg-zinc-800 text-xs font-mono">
+                            <TableCell className="text-foreground">{tx.clientName}</TableCell>
+                            <TableCell className="text-muted-foreground">
+                                <span className="px-2 py-1 rounded bg-secondary text-xs font-mono">
                                     {tx.product}
                                 </span>
                             </TableCell>
-                            <TableCell className="text-right font-bold text-zinc-100 tabular-nums">
+                            <TableCell className="text-right font-bold text-foreground tabular-nums">
                                 {tx.totalAmount.toLocaleString("fr-TG")} FCFA
                             </TableCell>
                             <TableCell className="text-center">
@@ -102,17 +102,17 @@ export function TransactionDatatable({ data }: TransactionDatatableProps) {
                             <TableCell className="text-right">
                                 <DropdownMenu>
                                     <DropdownMenuTrigger asChild>
-                                        <Button variant="ghost" className="h-8 w-8 p-0 text-zinc-400 hover:text-white">
+                                        <Button variant="ghost" className="h-8 w-8 p-0 text-muted-foreground hover:text-foreground">
                                             <span className="sr-only">Open menu</span>
                                             <MoreHorizontal className="h-4 w-4" />
                                         </Button>
                                     </DropdownMenuTrigger>
-                                    <DropdownMenuContent align="end" className="bg-zinc-950 border-zinc-800 text-zinc-200">
+                                    <DropdownMenuContent align="end" className="bg-card border text-foreground">
                                         <DropdownMenuLabel>Actions</DropdownMenuLabel>
-                                        <DropdownMenuItem onClick={() => handleEdit(tx)} className="cursor-pointer hover:bg-zinc-900 focus:bg-zinc-900">
-                                            <Edit2 className="mr-2 h-4 w-4 text-blue-400" /> Modifier
+                                        <DropdownMenuItem onClick={() => handleEdit(tx)} className="cursor-pointer hover:bg-muted focus:bg-muted">
+                                            <Edit2 className="mr-2 h-4 w-4 text-blue-500" /> Modifier
                                         </DropdownMenuItem>
-                                        <DropdownMenuItem onClick={() => handleDelete(tx.id)} className="cursor-pointer text-red-400 hover:bg-red-950/30 focus:bg-red-950/30">
+                                        <DropdownMenuItem onClick={() => handleDelete(tx.id)} className="cursor-pointer text-red-600 hover:bg-red-50 focus:bg-red-50">
                                             <Trash2 className="mr-2 h-4 w-4" /> Supprimer
                                         </DropdownMenuItem>
                                     </DropdownMenuContent>

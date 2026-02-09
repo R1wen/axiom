@@ -41,44 +41,44 @@ export function TransactionTable({ transactions }: TransactionTableProps) {
     };
 
     return (
-        <div className="rounded-xl border border-white/[0.08] bg-zinc-900/40 backdrop-blur-md overflow-hidden">
+        <div className="rounded-xl border bg-card shadow-sm overflow-hidden">
             <Table>
-                <TableHeader className="bg-zinc-950/50">
-                    <TableRow className="border-white/[0.08] hover:bg-transparent">
-                        <TableHead className="text-zinc-500 font-bold uppercase text-xs tracking-wider">Date</TableHead>
-                        <TableHead className="text-zinc-500 font-bold uppercase text-xs tracking-wider">Client</TableHead>
-                        <TableHead className="text-zinc-500 font-bold uppercase text-xs tracking-wider">Product</TableHead>
-                        <TableHead className="text-zinc-500 font-bold uppercase text-xs tracking-wider">Region</TableHead>
-                        <TableHead className="text-right text-zinc-500 font-bold uppercase text-xs tracking-wider">Amount</TableHead>
+                <TableHeader className="bg-muted/50">
+                    <TableRow className="hover:bg-transparent">
+                        <TableHead className="text-muted-foreground font-bold uppercase text-xs tracking-wider">Date</TableHead>
+                        <TableHead className="text-muted-foreground font-bold uppercase text-xs tracking-wider">Client</TableHead>
+                        <TableHead className="text-muted-foreground font-bold uppercase text-xs tracking-wider">Product</TableHead>
+                        <TableHead className="text-muted-foreground font-bold uppercase text-xs tracking-wider">Region</TableHead>
+                        <TableHead className="text-right text-muted-foreground font-bold uppercase text-xs tracking-wider">Amount</TableHead>
                     </TableRow>
                 </TableHeader>
                 <TableBody>
                     {transactions.map((transaction) => (
                         <TableRow
                             key={transaction.id}
-                            className="border-white/[0.08] hover:bg-white/[0.04] transition-colors cursor-pointer group"
+                            className="hover:bg-muted/50 transition-colors cursor-pointer group"
                             onClick={() => handleRowClick(transaction.clientName)}
                         >
-                            <TableCell className="text-zinc-400 text-sm font-medium">
+                            <TableCell className="text-muted-foreground text-sm font-medium">
                                 {new Date(transaction.date).toLocaleDateString("fr-TG", {
                                     day: "numeric",
                                     month: "short",
                                 })}
                             </TableCell>
-                            <TableCell className="text-zinc-200 font-bold group-hover:text-emerald-400 transition-colors">
+                            <TableCell className="text-foreground font-bold group-hover:text-primary transition-colors">
                                 {transaction.clientName}
                             </TableCell>
-                            <TableCell className="text-zinc-400 text-sm">
+                            <TableCell className="text-muted-foreground text-sm">
                                 {transaction.product}
                             </TableCell>
-                            <TableCell className="text-zinc-500 text-xs uppercase tracking-wide">
+                            <TableCell className="text-muted-foreground text-xs uppercase tracking-wide">
                                 {transaction.region}
                             </TableCell>
                             <TableCell className="text-right">
-                                <span className="font-bold text-zinc-200 tabular-nums">
+                                <span className="font-bold text-foreground tabular-nums">
                                     {(transaction.totalAmount).toLocaleString("fr-TG")}
                                 </span>
-                                <span className="ml-1 text-xs text-zinc-600">FCFA</span>
+                                <span className="ml-1 text-xs text-muted-foreground">FCFA</span>
                             </TableCell>
                         </TableRow>
                     ))}

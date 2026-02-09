@@ -24,7 +24,7 @@ export function ProductSplitChart({ data }: ProductSplitChartProps) {
                     data={formattedData}
                     margin={{ top: 10, right: 10, left: 0, bottom: 0 }}
                 >
-                    <CartesianGrid strokeDasharray="3 3" stroke="#27272a" opacity={0.3} />
+                    <CartesianGrid strokeDasharray="3 3" stroke="#e4e4e7" opacity={0.6} />
 
                     <XAxis
                         dataKey="productName"
@@ -47,20 +47,21 @@ export function ProductSplitChart({ data }: ProductSplitChartProps) {
 
                     <Tooltip
                         contentStyle={{
-                            backgroundColor: "#18181b",
-                            border: "1px solid rgba(255, 255, 255, 0.08)",
+                            backgroundColor: "#ffffff",
+                            border: "1px solid #e4e4e7",
                             borderRadius: "8px",
                             padding: "12px",
+                            boxShadow: "0 4px 6px -1px rgb(0 0 0 / 0.1)",
                         }}
-                        labelStyle={{ color: "#a1a1aa", marginBottom: "4px" }}
-                        itemStyle={{ color: "#6366f1" }}
+                        labelStyle={{ color: "#71717a", marginBottom: "4px" }}
+                        itemStyle={{ color: "#D4AF37" }}
                         formatter={(value: number | undefined) => [
                             `${(value ?? 0).toLocaleString("fr-TG")} FCFA`,
                             "Revenue",
                         ]}
                     />
 
-                    <Bar dataKey="revenue" fill="#6366f1" radius={[6, 6, 0, 0]} />
+                    <Bar dataKey="revenue" fill="#D4AF37" radius={[6, 6, 0, 0]} />
                 </BarChart>
             </ResponsiveContainer>
         </div>

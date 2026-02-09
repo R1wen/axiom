@@ -19,12 +19,12 @@ export function FinancialTrendChart({ data }: FinancialTrendChartProps) {
                 >
                     <defs>
                         <linearGradient id="revenueGradient" x1="0" y1="0" x2="0" y2="1">
-                            <stop offset="5%" stopColor="#10b981" stopOpacity={0.3} />
-                            <stop offset="95%" stopColor="#10b981" stopOpacity={0} />
+                            <stop offset="5%" stopColor="#D4AF37" stopOpacity={0.3} />
+                            <stop offset="95%" stopColor="#D4AF37" stopOpacity={0} />
                         </linearGradient>
                     </defs>
 
-                    <CartesianGrid strokeDasharray="3 3" stroke="#27272a" opacity={0.3} />
+                    <CartesianGrid strokeDasharray="3 3" stroke="#e4e4e7" opacity={0.6} />
 
                     <XAxis
                         dataKey="date"
@@ -48,13 +48,14 @@ export function FinancialTrendChart({ data }: FinancialTrendChartProps) {
 
                     <Tooltip
                         contentStyle={{
-                            backgroundColor: "#18181b",
-                            border: "1px solid rgba(255, 255, 255, 0.08)",
+                            backgroundColor: "#ffffff",
+                            border: "1px solid #e4e4e7",
                             borderRadius: "8px",
                             padding: "12px",
+                            boxShadow: "0 4px 6px -1px rgb(0 0 0 / 0.1)",
                         }}
-                        labelStyle={{ color: "#a1a1aa", marginBottom: "4px" }}
-                        itemStyle={{ color: "#10b981" }}
+                        labelStyle={{ color: "#71717a", marginBottom: "4px" }}
+                        itemStyle={{ color: "#D4AF37" }}
                         formatter={(value: number | undefined) => [
                             `${value?.toLocaleString("fr-TG") ?? 0} FCFA`,
                             "Revenue",
@@ -64,7 +65,7 @@ export function FinancialTrendChart({ data }: FinancialTrendChartProps) {
                     <Area
                         type="monotone"
                         dataKey="revenue"
-                        stroke="#10b981"
+                        stroke="#D4AF37"
                         strokeWidth={2}
                         fill="url(#revenueGradient)"
                     />

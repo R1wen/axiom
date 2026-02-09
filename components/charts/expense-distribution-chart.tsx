@@ -23,7 +23,7 @@ export function ExpenseDistributionChart({ data }: ExpenseDistributionChartProps
                     data={formattedData}
                     margin={{ top: 10, right: 10, left: 0, bottom: 0 }}
                 >
-                    <CartesianGrid strokeDasharray="3 3" stroke="#27272a" opacity={0.3} />
+                    <CartesianGrid strokeDasharray="3 3" stroke="#e4e4e7" opacity={0.6} />
 
                     <XAxis
                         dataKey="categoryName"
@@ -43,12 +43,13 @@ export function ExpenseDistributionChart({ data }: ExpenseDistributionChartProps
 
                     <Tooltip
                         contentStyle={{
-                            backgroundColor: "#18181b",
-                            border: "1px solid rgba(255, 255, 255, 0.08)",
+                            backgroundColor: "#ffffff",
+                            border: "1px solid #e4e4e7",
                             borderRadius: "8px",
                             padding: "12px",
+                            boxShadow: "0 4px 6px -1px rgb(0 0 0 / 0.1)",
                         }}
-                        labelStyle={{ color: "#a1a1aa", marginBottom: "4px" }}
+                        labelStyle={{ color: "#71717a", marginBottom: "4px" }}
                         itemStyle={{ color: "#f43f5e" }}
                         formatter={(value: number | undefined) => [
                             `${(value || 0).toLocaleString("fr-TG")} FCFA`,
