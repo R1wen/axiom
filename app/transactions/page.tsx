@@ -5,6 +5,7 @@ import { Input } from "@/components/ui/input";
 import { Search } from "lucide-react";
 import Link from "next/link";
 import { redirect } from "next/navigation";
+import { ExportDialog } from "@/components/transactions/export-dialog";
 
 export default async function TransactionsPage({
     searchParams,
@@ -34,6 +35,7 @@ export default async function TransactionsPage({
                     <p className="text-zinc-500">Gérez, modifiez et analysez vos flux financiers.</p>
                 </div>
                 <div className="flex items-center gap-2">
+                    <ExportDialog />
                     <Link href="/">
                         <Button variant="outline" className="border-zinc-800 text-zinc-300 hover:bg-zinc-800">
                             ← Retour Tableau de Bord

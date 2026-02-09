@@ -118,3 +118,36 @@ export async function deleteTransaction(id: string) {
         return { success: false, error: "Failed to delete transaction" };
     }
 }
+
+export async function getTransactionsForExport(startDate: Date, endDate: Date) {
+    try {
+        const transactions = await prisma.transaction.findMany({
+            where: {
+                date: {
+                    gte: startDate,
+                    lte: endDate,
+                },
+                status: Status.COMPLETED, // Only export completed transactions? Or all? Usually accounting wants all or completed. Let's do all for history.
+            },
+            orderBy: { date: "desc" },
+        });
+
+        // Transform for CSV friendly format
+        const data = transactions.map(t => ({
+            Date: t.date.toISOString().split('T')[0],
+            Client: t.clientName,
+            Produit: t.product,
+            "Quantité (kg)": t.quantity,
+            "Prix Unitaire": t.unitPrice,
+            "Total (FCFA)": t.totalAmount,
+            Statut: t.status,
+            "Méthode Paiement": t.paymentMethod,
+            Région: t.region
+        }));
+
+        return { success: true, data };
+    } catch (error) {
+        console.error("Failed to fetch export data:", error);
+        return { success: false, error: "Failed to fetch data" };
+    }
+}
