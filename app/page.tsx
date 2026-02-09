@@ -8,6 +8,7 @@ import { TransactionForm } from "@/components/transaction-form";
 import { BankabilityCard } from "@/components/dashboard/bankability-card";
 import { StockAlertCard } from "@/components/dashboard/stock-alert-card";
 import { DollarSign, Package, TrendingUp, Wallet } from "lucide-react";
+import Link from "next/link";
 
 export default async function Home() {
   const metrics = await getDashboardMetrics();
@@ -137,9 +138,14 @@ export default async function Home() {
               <h3 className="font-bold text-zinc-100">
                 Dernières Transactions
               </h3>
-              <span className="text-xs text-zinc-500 bg-zinc-800 px-2 py-1 rounded-full">
-                Temps réel
-              </span>
+              <div className="flex items-center gap-2">
+                <span className="text-xs text-zinc-500 bg-zinc-800 px-2 py-1 rounded-full">
+                  Temps réel
+                </span>
+                <Link href="/transactions" className="text-xs text-emerald-500 hover:text-emerald-400 font-medium">
+                  Voir Tout →
+                </Link>
+              </div>
             </div>
             <div className="p-0">
               <TransactionTable transactions={metrics.recentTransactions} />
