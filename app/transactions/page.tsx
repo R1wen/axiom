@@ -6,6 +6,7 @@ import { Search } from "lucide-react";
 import Link from "next/link";
 import { redirect } from "next/navigation";
 import { ExportDialog } from "@/components/transactions/export-dialog";
+import { TransactionForm } from "@/components/transaction-form";
 
 export default async function TransactionsPage({
     searchParams,
@@ -35,6 +36,7 @@ export default async function TransactionsPage({
                     <p className="text-muted-foreground">Manage, edit, and analyze your financial flows.</p>
                 </div>
                 <div className="flex items-center gap-2">
+                    <TransactionForm />
                     <ExportDialog />
                     <Link href="/">
                         <Button variant="outline" className="border-border text-foreground hover:bg-muted">
