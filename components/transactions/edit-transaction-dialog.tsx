@@ -7,7 +7,7 @@ import { Input } from "@/components/ui/input";
 import { Label } from "@/components/ui/label";
 import { Select, SelectContent, SelectItem, SelectTrigger, SelectValue } from "@/components/ui/select";
 import { updateTransaction } from "@/actions/transactions";
-import { Status, ProductType } from "@prisma/client";
+import { Status, ProductType } from "@/app/generated/prisma/enums";
 import { Loader2 } from "lucide-react";
 
 interface EditTransactionDialogProps {

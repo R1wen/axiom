@@ -3,7 +3,7 @@
 import { useState } from "react";
 import { Table, TableBody, TableCell, TableHead, TableHeader, TableRow } from "@/components/ui/table";
 import { Badge } from "@/components/ui/badge";
-import { ProductType, Region, Status } from "@prisma/client";
+import { ProductType, Region, Status } from "@/app/generated/prisma/enums";
 import { ClientDossierDialog } from "@/components/crm/client-dossier-dialog";
 
 interface Transaction {

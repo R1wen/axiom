@@ -38,7 +38,7 @@ export function ExportDialog() {
                 const headers = Object.keys(result.data[0]);
                 const csvContent = [
                     headers.join(","), // Header row
-                    ...result.data.map(row =>
+                    ...result.data.map((row: any) =>
                         headers.map(header => {
                             const val = (row as any)[header];
                             // Escape quotes and wrap in quotes to handle commas

@@ -1,10 +1,9 @@
 "use server";
 
-import { PrismaClient, ProductType, Region, PaymentMethod, Status, ExpenseCategory } from "@prisma/client";
+import { ProductType, Region, PaymentMethod, Status, ExpenseCategory } from "../app/generated/prisma/client";
+import prisma from "../lib/prisma";
 import { revalidatePath } from "next/cache";
 import { z } from "zod";
-
-const prisma = new PrismaClient();
 
 // Types for dashboard metrics
 export type DashboardMetrics = {
@@ -151,8 +150,8 @@ export async function getDashboardMetrics(): Promise<DashboardMetrics> {
     ]);
 
     // Calculate totals
-    const totalRevenue = transactions.reduce((sum, t) => sum + t.totalAmount, 0);
-    const totalVolume = transactions.reduce((sum, t) => sum + t.quantity, 0);
+    const totalRevenue = transactions.reduce((sum: number, t: { totalAmount: number }) => sum + t.totalAmount, 0);
+    const totalVolume = transactions.reduce((sum: number, t: { quantity: number }) => sum + t.quantity, 0);
     const transactionCount = transactions.length;
     const avgBasketSize = transactionCount > 0 ? totalRevenue / transactionCount : 0;
 
@@ -202,19 +201,19 @@ export async function getDashboardMetrics(): Promise<DashboardMetrics> {
     }));
 
     // Map expense distribution
-    const expenseDistribution = expenseAggregates.map(agg => ({
+    const expenseDistribution = expenseAggregates.map((agg) => ({
         category: agg.category,
         amount: agg._sum.amount || 0
-    })).sort((a, b) => b.amount - a.amount);
+    })).sort((a: { amount: number }, b: { amount: number }) => b.amount - a.amount);
 
     // Calculate trend data (group by day for the last 30 days)
     // const thirtyDaysAgo = new Date(); // Already defined
     // thirtyDaysAgo.setDate(thirtyDaysAgo.getDate() - 30); // Already defined
 
-    const recentTrans = transactions.filter((t) => t.date >= thirtyDaysAgo);
+    const recentTrans = transactions.filter((t: { date: Date; totalAmount: number }) => t.date >= thirtyDaysAgo);
     const trendMap = new Map<string, number>();
 
-    recentTrans.forEach((t) => {
+    recentTrans.forEach((t: { date: Date; totalAmount: number }) => {
         const dateKey = t.date.toISOString().split("T")[0];
         trendMap.set(dateKey, (trendMap.get(dateKey) || 0) + t.totalAmount);
     });
@@ -316,7 +315,7 @@ export async function getBankabilityMetrics() {
 
         // Group by month
         const monthlyRevenue: Record<string, number> = {};
-        transactions.forEach(t => {
+        transactions.forEach((t: { date: Date; totalAmount: number }) => {
             const month = t.date.toISOString().slice(0, 7); // YYYY-MM
             monthlyRevenue[month] = (monthlyRevenue[month] || 0) + t.totalAmount;
         });
@@ -342,8 +341,8 @@ export async function getBankabilityMetrics() {
         const expenses = await prisma.expense.findMany({
             where: { date: { gte: sixMonthsAgo } }
         });
-        const totalExpenses = expenses.reduce((sum, e) => sum + e.amount, 0);
-        const totalRevenue = transactions.reduce((sum, t) => sum + t.totalAmount, 0);
+        const totalExpenses = expenses.reduce((sum: number, e: { amount: number }) => sum + e.amount, 0);
+        const totalRevenue = transactions.reduce((sum: number, t: { totalAmount: number }) => sum + t.totalAmount, 0);
         const netMargin = totalRevenue - totalExpenses;
         const marginPercent = totalRevenue > 0 ? (netMargin / totalRevenue) * 100 : 0;
 
@@ -355,7 +354,7 @@ export async function getBankabilityMetrics() {
         else if (marginPercent > 0) marginScore = (marginPercent / 20) * 40;
 
         // 3. Digital Footprint (Mobile Money usage) (0-20 points)
-        const mobileMoneyTransactions = transactions.filter(t => t.paymentMethod === 'MOBILE_MONEY').length;
+        const mobileMoneyTransactions = transactions.filter((t: { paymentMethod: PaymentMethod }) => t.paymentMethod === 'MOBILE_MONEY').length;
         const digitalRatio = transactions.length > 0 ? mobileMoneyTransactions / transactions.length : 0;
         const digitalScore = digitalRatio * 20;
 
@@ -383,7 +382,7 @@ export async function getBankabilityMetrics() {
 }
 
 function getFeedback(score: number, margin: number, cv: number): string[] {
-    const feedback = [];
+    const feedback: string[] = [];
     if (score >= 70) feedback.push("Excellent profile for bank credit.");
     if (margin < 10) feedback.push("Warning: Low margins. Reduce costs.");
     if (cv > 0.3) feedback.push("Revenue too irregular. Secure fixed contracts.");
@@ -399,7 +398,7 @@ export async function getInactivityMetrics() {
 
         // 1. Get all products and their last transaction date
         const products = Object.values(ProductType);
-        const inactivityData = [];
+        const inactivityData: { product: ProductType; daysSinceLastSale: number; monthlyVolume: number; monthlyRevenue: number; status: 'CRITICAL' | 'SLOW' | 'ACTIVE' }[] = [];
 
         for (const product of products) {
             // Find last sale date
@@ -431,9 +430,9 @@ export async function getInactivityMetrics() {
                 : 999; // Never sold
 
             // Determine status
-            let status: 'CRITICAL' | 'SLOW' | 'ACTIVE' = 'ACTIVE';
-            if (daysSinceLastSale > 14) status = 'CRITICAL';
-            else if (daysSinceLastSale > 7) status = 'SLOW';
+            let status: 'CRITICAL' | 'SLOW' | 'ACTIVE' | undefined = 'ACTIVE';
+            if (daysSinceLastSale && daysSinceLastSale > 14) status = 'CRITICAL';
+            else if (daysSinceLastSale && daysSinceLastSale > 7) status = 'SLOW';
 
             inactivityData.push({
                 product,
@@ -445,7 +444,7 @@ export async function getInactivityMetrics() {
         }
 
         // Sort by urgency (Critical first)
-        inactivityData.sort((a, b) => b.daysSinceLastSale - a.daysSinceLastSale);
+        inactivityData.sort((a: { daysSinceLastSale: number }, b: { daysSinceLastSale: number }) => b.daysSinceLastSale - a.daysSinceLastSale);
 
         return {
             success: true,
@@ -468,7 +467,7 @@ export async function getClientProfile(clientName: string) {
         if (transactions.length === 0) return { success: false, error: 'Client not found' };
 
         // Metrics
-        const totalSpent = transactions.reduce((sum, t) => sum + t.totalAmount, 0);
+        const totalSpent = transactions.reduce((sum: number, t: { totalAmount: number }) => sum + t.totalAmount, 0);
         const lastPurchase = transactions[0].date;
         const firstPurchase = transactions[transactions.length - 1].date;
 
@@ -490,7 +489,7 @@ export async function getClientProfile(clientName: string) {
         // Preferred Product & Payment
         const products: Record<string, number> = {};
         const payments: Record<string, number> = {};
-        transactions.forEach(t => {
+        transactions.forEach((t: { product: ProductType; paymentMethod: PaymentMethod }) => {
             products[t.product] = (products[t.product] || 0) + 1;
             payments[t.paymentMethod] = (payments[t.paymentMethod] || 0) + 1;
         });

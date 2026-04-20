@@ -1,10 +1,9 @@
 "use server";
 
-import { PrismaClient, Status, ProductType, Region, PaymentMethod } from "@prisma/client";
+import { Status, ProductType, Region, PaymentMethod } from "../app/generated/prisma/client";
+import prisma from "../lib/prisma";
 import { revalidatePath } from "next/cache";
 import { z } from "zod";
-
-const prisma = new PrismaClient();
 
 // Schema for updating transaction
 const updateTransactionSchema = z.object({
@@ -133,7 +132,7 @@ export async function getTransactionsForExport(startDate: Date, endDate: Date) {
         });
 
         // Transform for CSV friendly format
-        const data = transactions.map(t => ({
+        const data = transactions.map((t: { date: Date; clientName: string; product: ProductType; quantity: number; unitPrice: number; totalAmount: number; status: Status; paymentMethod: PaymentMethod; region: Region }) => ({
             Date: t.date.toISOString().split('T')[0],
             Client: t.clientName,
             Produit: t.product,

@@ -1,7 +1,7 @@
 "use client";
 
 import { BarChart, Bar, XAxis, YAxis, CartesianGrid, Tooltip, ResponsiveContainer } from "recharts";
-import { ProductType } from "@prisma/client";
+import { ProductType } from "@/app/generated/prisma/enums";
 
 interface ProductSplitChartProps {
     data: Array<{

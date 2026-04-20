@@ -6,7 +6,7 @@ import { Button } from "@/components/ui/button";
 import { Label } from "@/components/ui/label";
 import { Input } from "@/components/ui/input";
 import { Select, SelectContent, SelectItem, SelectTrigger, SelectValue } from "@/components/ui/select";
-import { ProductType, Region, PaymentMethod } from "@prisma/client";
+import { ProductType, Region, PaymentMethod } from "@/app/generated/prisma/enums";
 import { createTransaction } from "@/actions/finance";
 import { Plus } from "lucide-react";
 

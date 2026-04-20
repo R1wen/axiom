@@ -1,7 +1,7 @@
 "use client";
 
 import { BarChart, Bar, XAxis, YAxis, CartesianGrid, Tooltip, ResponsiveContainer } from "recharts";
-import { ExpenseCategory } from "@prisma/client";
+import { ExpenseCategory } from "@/app/generated/prisma/enums";
 
 interface ExpenseDistributionChartProps {
     data: Array<{

@@ -1,6 +1,5 @@
-import { PrismaClient, ProductType, Region, PaymentMethod, Status, ExpenseCategory } from '@prisma/client';
-
-const prisma = new PrismaClient();
+import { ProductType, Region, PaymentMethod, Status, ExpenseCategory } from '../app/generated/prisma/enums';
+import prisma from '../lib/prisma';
 
 // Realistic Togolese client names
 const TOGO_NAMES = [
@@ -202,7 +201,4 @@ seed()
     .catch((e) => {
         console.error('❌ Seed failed:', e);
         process.exit(1);
-    })
-    .finally(async () => {
-        await prisma.$disconnect();
     });
